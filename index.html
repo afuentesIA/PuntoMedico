@@ -3,46 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Venta y Renta de Material Hospitalario en Guadalajara | Punto Médico</title>
-
-    <meta name="description" content="Venta y renta de material hospitalario en Guadalajara, Jalisco. Equipos médicos certificados, renta flexible y atención profesional.">
-    <meta name="keywords" content="material hospitalario, renta equipos médicos, venta equipos médicos, Guadalajara, camas hospitalarias, oxígeno médico">
+    <meta name="description" content="Punto Médico - Su proveedor de confianza de material hospitalario en Guadalajara, Jalisco. Venta y renta de equipos médicos de alta calidad.">
+    <meta name="keywords" content="material hospitalario, equipos médicos, renta equipos médicos, Guadalajara, Jalisco, material médico">
     <meta name="author" content="Punto Médico">
     <meta name="robots" content="index, follow">
-
-    <link rel="canonical" href="https://puntomedico.com/">
-
-    <!-- Open Graph -->
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Punto Médico | Material Hospitalario en Guadalajara">
-    <meta property="og:description" content="Proveedor confiable de renta y venta de equipos médicos en Guadalajara, Jalisco.">
-    <meta property="og:image" content="./images/hero-medical.webp">
     <meta property="og:url" content="https://puntomedico.com/">
-
+    <meta property="og:title" content="Punto Médico - Material Hospitalario">
+    <meta property="og:description" content="Su proveedor de confianza de material hospitalario en Guadalajara, Jalisco">
+    <meta property="og:image" content="./images/hero-medical.png">
+    
     <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Punto Médico | Material Hospitalario">
-    <meta name="twitter:description" content="Venta y renta de equipos médicos en Guadalajara.">
-    <meta name="twitter:image" content="./images/hero-medical.webp">
-
-    <!-- Icons -->
-    <link rel="icon" href="./favicon.ico">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://puntomedico.com/">
+    <meta property="twitter:title" content="Punto Médico - Material Hospitalario">
+    <meta property="twitter:description" content="Su proveedor de confianza de material hospitalario en Guadalajara, Jalisco">
+    <meta property="twitter:image" content="./images/hero-medical.png">
+    
+    <title>Punto Médico - Material Hospitalario | Guadalajara, Jalisco</title>
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://puntomedico.com/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
-
-    <!-- Styles -->
+    
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/inicio.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "MedicalBusiness",
         "name": "Punto Médico",
+        "description": "Proveedor de material hospitalario en Guadalajara, Jalisco",
         "url": "https://puntomedico.com",
-        "description": "Venta y renta de material hospitalario en Guadalajara, Jalisco",
         "telephone": "+52-33-XXXX-XXXX",
         "address": {
             "@type": "PostalAddress",
@@ -51,197 +51,117 @@
             "addressCountry": "MX"
         },
         "openingHours": "Mo-Fr 08:00-18:00",
-        "priceRange": "$$"
+        "priceRange": "$",
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Material Hospitalario",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Product",
+                        "name": "Equipos Médicos"
+                    }
+                }
+            ]
+        }
     }
     </script>
 </head>
-
 <body>
-
-<!-- H1 SEO oculto -->
-<h1 class="visually-hidden">
-Venta y renta de material hospitalario en Guadalajara, Jalisco | Punto Médico
-</h1>
-
-<!-- HEADER -->
-<header class="header" role="banner">
-    <div class="container">
-        <div class="logo" onclick="location.href='./index.html'" style="cursor:pointer;">
-            <i class="fas fa-heartbeat"></i>
-            <span>Punto Médico</span>
-        </div>
-
-        <nav class="nav" role="navigation">
-            <ul class="nav-list">
-                <li><a href="./index.html" class="active">Inicio</a></li>
-                <li><a href="./nosotros.html">¿Quiénes Somos?</a></li>
-                <li><a href="./productos.html">Productos</a></li>
-                <li><a href="./contacto.html">Contacto</a></li>
-            </ul>
-
-            <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menú">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </button>
-        </nav>
-
-        <div class="cart-icon" id="cartIcon" role="button">
-            <i class="fas fa-shopping-cart"></i>
-            <span class="cart-count" id="cartCount">0</span>
-        </div>
-    </div>
-</header>
-
-<!-- MAIN -->
-<main>
-
-<!-- HERO -->
-<section class="hero" role="img" aria-label="Equipos médicos"
-    style="background-image:url('./images/hero-medical.webp');">
-</section>
-
-<!-- HERO INFO -->
-<section class="hero-info">
-    <div class="container">
-        <h2>Venta y Renta de Equipos Médicos en Guadalajara</h2>
-        <p>
-            En <strong>Punto Médico</strong> ofrecemos material hospitalario certificado,
-            renta flexible y atención profesional para clínicas, hospitales y atención domiciliaria.
-        </p>
-        <div class="hero-actions">
-            <a href="./productos.html" class="cta-button">Ver Productos</a>
-            <a href="./contacto.html" class="cta-outline">Cotizar</a>
-        </div>
-    </div>
-</section>
-
-<!-- FEATURES -->
-<section class="features">
-    <div class="container">
-        <div class="features-grid">
-            <div class="feature-card">
-                <i class="fas fa-certificate"></i>
-                <h3>Calidad Garantizada</h3>
-                <p>Equipos certificados y sanitizados.</p>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="logo" onclick="window.location.href='./index.html'" style="cursor: pointer;">
+                <i class="fas fa-heartbeat" aria-hidden="true"></i>
+                <h1>Punto Médico</h1>
             </div>
-            <div class="feature-card">
-                <i class="fas fa-clock"></i>
-                <h3>Renta Flexible</h3>
-                <p>Por día, semana o mes.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-truck"></i>
-                <h3>Entrega Rápida</h3>
-                <p>Guadalajara y zona metropolitana.</p>
+
+            <nav class="nav" role="navigation" aria-label="Navegación principal">
+                <ul class="nav-list">
+                    <li><a href="./index.html" class="nav-link active" data-tab="inicio">Inicio</a></li>
+                    <li><a href="./nosotros.html" class="nav-link" data-tab="nosotros">¿Quiénes Somos?</a></li>
+                    <li><a href="./productos.html" class="nav-link" data-tab="productos">Productos</a></li>
+                    <li><a href="./contacto.html" class="nav-link" data-tab="contacto">Contacto</a></li>
+                </ul>
+
+                <!-- Botón del menú hamburguesa -->
+                <button class="hamburger-btn" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false" title="Abrir menú de navegación">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                
+            </nav>
+            
+            <div class="cart-icon" id="cartIcon" role="button" tabindex="0" aria-label="Abrir carrito de compras">
+                <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                <span class="cart-count" id="cartCount">0</span>
             </div>
         </div>
-    </div>
-</section>
+    </header>
 
-<!-- WHY US -->
-<section class="why-us">
-    <div class="container">
-        <h2>¿Por qué elegir Punto Médico?</h2>
-        <div class="why-grid">
-            <div>
-                <i class="fas fa-user-md"></i>
-                <h3>Asesoría Profesional</h3>
-                <p>Te ayudamos a elegir el equipo adecuado.</p>
+    <!-- Main Content -->
+    <main class="main" role="main">
+        <!-- Inicio Tab -->
+        <section id="inicio" class="tab-content active">
+            <!-- Hero solo con imagen -->
+            <div class="hero" style="background-image: url('./images/hero-medical.png');" role="img" aria-label="Imagen de equipos médicos">
             </div>
-            <div>
-                <i class="fas fa-shield-heart"></i>
-                <h3>Equipos Confiables</h3>
-                <p>Mantenimiento y sanitización constante.</p>
+            
+            <!-- Nueva sección para el contenido -->
+            <div class="hero-content-section">
+                <div class="container">
+                    <h2>Punto Médico</h2>
+                    <h3>Material Hospitalario</h3>
+                    <p>Su proveedor de confianza de material hospitalario en Guadalajara, Jalisco</p>
+                    <button class="cta-button" onclick="window.location.href='./productos.html'">Ver Productos</button>
+                </div>
             </div>
-            <div>
-                <i class="fas fa-hand-holding-medical"></i>
-                <h3>Atención Humana</h3>
-                <p>Comprometidos con tu bienestar.</p>
+            
+            <div class="features" aria-label="Características principales">
+                <div class="container">
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                            <h4>Calidad Garantizada</h4>
+                            <p>Productos que cumplen con los más altos estándares de calidad</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-clock" aria-hidden="true"></i>
+                            <h4>Renta Flexible</h4>
+                            <p>Alquile equipos médicos por el tiempo que necesite</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-users" aria-hidden="true"></i>
+                            <h4>Equipo Profesional</h4>
+                            <p>Personal capacitado y comprometido con su servicio</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal" role="dialog" aria-labelledby="cartModalTitle" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="cartModalTitle">Carrito de Compras</h3>
+                <span class="close" id="closeCart" role="button" tabindex="0" aria-label="Cerrar carrito">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="cartItems"></div>
+                <div class="cart-total">
+                    <h4>Total: $<span id="cartTotal">0</span></h4>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="clearCart">Vaciar Carrito</button>
+                <button class="btn-primary" id="proceedPayment">Proceder al Pago</button>
             </div>
         </div>
     </div>
-</section>
-
-<!-- FEATURED PRODUCTS -->
-<section class="featured-products">
-    <div class="container">
-        <h2>Productos Médicos Más Solicitados</h2>
-        <div class="products-grid">
-            <article>
-                <h3>Camas Hospitalarias</h3>
-                <p>Eléctricas y manuales.</p>
-                <a href="./productos.html">Ver más</a>
-            </article>
-            <article>
-                <h3>Oxígeno Médico</h3>
-                <p>Concentradores y tanques.</p>
-                <a href="./productos.html">Ver más</a>
-            </article>
-            <article>
-                <h3>Sillas de Ruedas</h3>
-                <p>Estándar y especializadas.</p>
-                <a href="./productos.html">Ver más</a>
-            </article>
-        </div>
-    </div>
-</section>
-
-<!-- LOCAL SEO -->
-<section class="local-seo">
-    <div class="container">
-        <h2>Material Hospitalario en Guadalajara, Jalisco</h2>
-        <p>Servicio en Guadalajara, Zapopan, Tlaquepaque y Tonalá.</p>
-    </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials">
-    <div class="container">
-        <h2>Opiniones de Clientes</h2>
-        <blockquote>
-            Excelente atención y equipos impecables.
-            <footer>— Clínica Privada</footer>
-        </blockquote>
-        <blockquote>
-            Servicio rápido y confiable.
-            <footer>— Atención domiciliaria</footer>
-        </blockquote>
-    </div>
-</section>
-
-<!-- CTA -->
-<section class="final-cta">
-    <div class="container">
-        <h2>¿Necesitas equipo médico hoy?</h2>
-        <p>Contáctanos y recibe atención inmediata.</p>
-        <a href="./contacto.html" class="cta-button">Contactar Ahora</a>
-    </div>
-</section>
-
-</main>
-
-<!-- ===================== MODALES ORIGINALES ===================== -->
-
-<!-- Cart Modal -->
-<div id="cartModal" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3>Carrito de Compras</h3>
-            <span class="close" id="closeCart">&times;</span>
-        </div>
-        <div class="modal-body">
-            <div id="cartItems"></div>
-            <div class="cart-total">
-                <h4>Total: $<span id="cartTotal">0</span></h4>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button id="clearCart">Vaciar Carrito</button>
-            <button id="proceedPayment">Proceder al Pago</button>
-        </div>
-    </div>
-</div>
 
 <!-- Payment Modal -->
 <div id="paymentModal" class="modal">
@@ -251,46 +171,158 @@ Venta y renta de material hospitalario en Guadalajara, Jalisco | Punto Médico
             <span class="close" id="closePayment">&times;</span>
         </div>
         <div class="modal-body">
-            <div id="paymentItems"></div>
-            <strong>Total: $<span id="paymentTotal">0</span></strong>
+            <div class="payment-methods">
+                <div class="payment-method-tabs">
+                    <button type="button" class="payment-tab active" data-method="card">
+                        <i class="fas fa-credit-card"></i>
+                        Tarjeta
+                    </button>
+                    <button type="button" class="payment-tab" data-method="paypal">
+                        <i class="fab fa-paypal"></i>
+                        PayPal
+                    </button>
+                </div>
+
+                <!-- Formulario de Tarjeta -->
+                <div id="cardPaymentForm" class="payment-form active">
+                    <form autocomplete="on">
+                        <div class="form-group">
+                            <label for="cardType">Tipo de Tarjeta</label>
+                            <div class="card-type-selector">
+                                <label class="card-type-option">
+                                    <input type="radio" name="cardType" value="credit" checked 
+                                           autocomplete="cc-type">
+                                    <span class="card-type-label">
+                                        <i class="fas fa-credit-card"></i>
+                                        Crédito
+                                    </span>
+                                </label>
+                                <label class="card-type-option">
+                                    <input type="radio" name="cardType" value="debit"
+                                           autocomplete="cc-type">
+                                    <span class="card-type-label">
+                                        <i class="fas fa-credit-card"></i>
+                                        Débito
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cardNumber">Número de Tarjeta</label>
+                            <input type="text" id="cardNumber" name="cardnumber" 
+                                   placeholder="1234 5678 9012 3456" maxlength="19"
+                                   autocomplete="cc-number">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expiryDate">Fecha de Vencimiento</label>
+                                <input type="text" id="expiryDate" name="expiry" 
+                                       placeholder="MM/AA" maxlength="5"
+                                       autocomplete="cc-exp">
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <input type="password" id="cvv" name="cvv" 
+                                       placeholder="123" maxlength="4"
+                                       autocomplete="cc-csc">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cardHolder">Nombre del Titular</label>
+                            <input type="text" id="cardHolder" name="cardname" 
+                                   placeholder="Como aparece en la tarjeta"
+                                   autocomplete="cc-name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cardEmail">Correo Electrónico (para recibo)</label>
+                            <input type="email" id="cardEmail" name="email" 
+                                   placeholder="tu@email.com"
+                                   autocomplete="email">
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Formulario de PayPal -->
+                <div id="paypalPaymentForm" class="payment-form">
+                    <div class="paypal-simple">
+                        <div class="paypal-logo">
+                            <i class="fab fa-paypal"></i>
+                            <span>PayPal</span>
+                        </div>
+                        <p>Pago rápido y seguro con PayPal</p>
+                        <button type="button" class="btn-paypal-simple" id="btnPayPalSimple">
+                            <i class="fab fa-paypal"></i> Pagar con PayPal
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="payment-summary">
+                <h4>Resumen del Pedido</h4>
+                <div id="paymentItems"></div>
+                <div class="payment-total">
+                    <strong>Total: $<span id="paymentTotal">0</span></strong>
+                </div>
+            </div>
         </div>
         <div class="modal-footer">
-            <button id="cancelPayment">Cancelar</button>
-            <button id="processCardPayment">Pagar</button>
+            <button class="btn-secondary" id="cancelPayment">Cancelar</button>
+            <button class="btn-primary" id="processCardPayment">
+                <i class="fas fa-lock"></i> Pagar con Tarjeta
+            </button>
+            <button class="btn-paypal" id="processPayPalPayment" style="display: none;">
+                <i class="fab fa-paypal"></i> Pagar con PayPal
+            </button>
         </div>
     </div>
 </div>
 
-<!-- Product Modal -->
-<div id="productModal" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3>Agregar al Carrito</h3>
-            <span class="close" id="closeProduct">&times;</span>
-        </div>
-        <div class="modal-body">
-            <label>Fecha inicio</label>
-            <input type="date" id="startDate">
-            <label>Fecha fin</label>
-            <input type="date" id="endDate">
-            <label>Cantidad</label>
-            <input type="number" id="quantity" value="1">
-            <h4>Total: $<span id="rentalTotal">0</span></h4>
-        </div>
-        <div class="modal-footer">
-            <button id="cancelRental">Cancelar</button>
-            <button id="addToCart">Agregar</button>
+    <!-- Product Modal -->
+    <div id="productModal" class="modal" role="dialog" aria-labelledby="productModalTitle" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="productModalTitle">Agregar al Carrito</h3>
+                <span class="close" id="closeProduct" role="button" tabindex="0" aria-label="Cerrar modal de producto">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="rental-form">
+                    <div class="form-group">
+                        <label for="startDate">Fecha de Inicio</label>
+                        <input type="date" id="startDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="endDate">Fecha de Fin</label>
+                        <input type="date" id="endDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Cantidad</label>
+                        <input type="number" id="quantity" min="1" value="1">
+                    </div>
+                    <div class="rental-summary">
+                        <p>Días de renta: <span id="rentalDays">0</span></p>
+                        <p>Precio por día: $<span id="pricePerDay">0</span></p>
+                        <h4>Total: $<span id="rentalTotal">0</span></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="cancelRental">Cancelar</button>
+                <button class="btn-primary" id="addToCart">Agregar al Carrito</button>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- FOOTER -->
-<footer class="footer">
-    <div class="container">
-        <p>&copy; 2025 Punto Médico - Todos los derechos reservados</p>
-    </div>
-</footer>
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <p>&copy; 2025 Punto Médico - Todos los derechos reservados</p>
+        </div>
+    </footer>
 
-<script src="./js/script.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 </html>
