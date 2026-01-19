@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Punto Médico</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/contacto.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+<div class="logo" onclick="window.location.href='./index.html'" style="cursor: pointer;">
+    <i class="fas fa-heartbeat"></i>
+    <h1>Punto Médico</h1>
+</div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="./index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="./nosotros.html" class="nav-link">¿Quiénes Somos?</a></li>
+                    <li><a href="./productos.html" class="nav-link">Productos</a></li>
+                    <li><a href="./contacto.html" class="nav-link active">Contacto</a></li>
+                </ul>
+                              <!-- Botón del menú hamburguesa -->
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Abrir menú" title="Abrir menú de navegación">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+    </button>
+    
+            </nav>
+            <div class="cart-icon" id="cartIcon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Contacto Section -->
+        <section class="content-section">
+            <div class="container">
+                <div class="contact-section">
+                    <h2>Contáctanos</h2>
+                    <p class="contact-subtitle">Estamos aquí para ayudarte. Ponte en contacto con nosotros a través de cualquiera de nuestros canales.</p>
+                    
+                    <div class="contact-grid">
+                        <!-- Información de Contacto -->
+                        <div class="contact-info">
+                            <h3>Información de Contacto</h3>
+                            <div class="contact-cards">
+                                <div class="contact-card">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <div class="contact-details">
+                                        <h4>Teléfono</h4>
+                                        <p>+52 33 3508 0466</p>
+                                        <span>Lunes a Viernes: 8:00 AM - 6:00 PM</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-card">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="contact-details">
+                                        <h4>Email</h4>
+                                        <p>info@puntomedico.mx</p>
+                                        <span>Respondemos en menos de 24 horas</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-card">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="contact-details">
+                                        <h4>Horario de Atención</h4>
+                                        <p>Lunes a Viernes: 8:00 AM - 6:00 PM</p>
+                                        <p>Sábados: 9:00 AM - 2:00 PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Formulario de Contacto -->
+                        <div class="contact-form-section">
+                            <h3>Envíanos un Mensaje</h3>
+                            <form class="contact-form" id="contactForm">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="name">Nombre Completo *</label>
+                                        <input type="text" id="name" name="name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email *</label>
+                                        <input type="email" id="email" name="email" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="phone">Teléfono</label>
+                                    <input type="tel" id="phone" name="phone">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="subject">Asunto *</label>
+                                    <select id="subject" name="subject" required>
+                                        <option value="">Selecciona un asunto</option>
+                                        <option value="cotizacion">Cotización de productos</option>
+                                        <option value="renta">Renta de equipos</option>
+                                        <option value="soporte">Soporte técnico</option>
+                                        <option value="general">Consulta general</option>
+                                        <option value="otro">Otro</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="message">Mensaje *</label>
+                                    <textarea id="message" name="message" rows="5" required placeholder="Describe tu consulta o requerimiento..."></textarea>
+                                </div>
+                                
+                                <button type="submit" class="btn-primary btn-full">
+                                    <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Ubicaciones con Mapas -->
+                    <div class="locations-section">
+                        <h3>Nuestras Ubicaciones</h3>
+                        <div class="locations-grid">
+                            <div class="location-card">
+                                <div class="location-map">
+                                    <iframe 
+                                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7465.074020062946!2d-103.342795!3d20.688407!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428b1df178618c5%3A0x53896671bb0e17b7!2sPunto%20M%C3%A9dico%20(material%20hospitalario%20y%20renta%20de%20equipo%20m%C3%A9dico)!5e0!3m2!1ses-419!2smx!4v1758656257770!5m2!1ses-419!2smx" 
+                                        width="100%" 
+                                        height="100%" 
+                                        style="border:0;" 
+                                        allowfullscreen="" 
+                                        loading="lazy" 
+                                        referrerpolicy="no-referrer-when-downgrade">
+                                    </iframe>
+                                </div>
+                                <div class="location-info">
+                                    <h4><i class="fas fa-map-marker-alt"></i> Sucursal Principal</h4>
+                                    <p class="location-address">Col. El Retiro, Guadalajara, Jalisco</p>
+                                    <div class="location-details">
+                                        <p><i class="fas fa-phone"></i> +52 33 3508 0466</p>
+                                        <p><i class="fas fa-clock"></i> Lunes a Viernes: 8:00 AM - 6:00 PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="location-card">
+                                <div class="location-map">
+                                    <iframe 
+                                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7467.372925792672!2d-103.445398!3d20.641633!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428ac094b450969%3A0x186dd3b6ded49d74!2sC.%20Puerto%20San%20Juan%201%2C%20Miramar%2C%2045060%20Zapopan%2C%20Jal.!5e0!3m2!1ses-419!2smx!4v1758656288463!5m2!1ses-419!2smx" 
+                                        width="100%" 
+                                        height="100%" 
+                                        style="border:0;" 
+                                        allowfullscreen="" 
+                                        loading="lazy" 
+                                        referrerpolicy="no-referrer-when-downgrade">
+                                    </iframe>
+                                </div>
+                                <div class="location-info">
+                                    <h4><i class="fas fa-map-marker-alt"></i> Nueva Sucursal</h4>
+                                    <p class="location-address">C. Puerto San Juan 1A, Miramar, 45060 Zapopan, Jalisco</p>
+                                    <div class="location-details">
+                                        <p><i class="fas fa-phone"></i> +52 33 3508 0466</p>
+                                        <p><i class="fas fa-clock"></i> Lunes a Sábado: 8:00 AM - 5:00 PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Carrito de Compras</h3>
+                <span class="close" id="closeCart">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="cartItems"></div>
+                <div class="cart-total">
+                    <h4>Total: $<span id="cartTotal">0</span></h4>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="clearCart">Vaciar Carrito</button>
+                <button class="btn-primary" id="proceedPayment">Proceder al Pago</button>
+            </div>
+        </div>
+    </div>
+
+<!-- Payment Modal -->
+<div id="paymentModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Procesar Pago</h3>
+            <span class="close" id="closePayment">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div class="payment-methods">
+                <div class="payment-method-tabs">
+                    <button type="button" class="payment-tab active" data-method="card">
+                        <i class="fas fa-credit-card"></i>
+                        Tarjeta
+                    </button>
+                    <button type="button" class="payment-tab" data-method="paypal">
+                        <i class="fab fa-paypal"></i>
+                        PayPal
+                    </button>
+                </div>
+
+                <!-- Formulario de Tarjeta -->
+                <div id="cardPaymentForm" class="payment-form active">
+                    <form autocomplete="on">
+                        <div class="form-group">
+                            <label for="cardType">Tipo de Tarjeta</label>
+                            <div class="card-type-selector">
+                                <label class="card-type-option">
+                                    <input type="radio" name="cardType" value="credit" checked 
+                                           autocomplete="cc-type">
+                                    <span class="card-type-label">
+                                        <i class="fas fa-credit-card"></i>
+                                        Crédito
+                                    </span>
+                                </label>
+                                <label class="card-type-option">
+                                    <input type="radio" name="cardType" value="debit"
+                                           autocomplete="cc-type">
+                                    <span class="card-type-label">
+                                        <i class="fas fa-credit-card"></i>
+                                        Débito
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cardNumber">Número de Tarjeta</label>
+                            <input type="text" id="cardNumber" name="cardnumber" 
+                                   placeholder="1234 5678 9012 3456" maxlength="19"
+                                   autocomplete="cc-number">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expiryDate">Fecha de Vencimiento</label>
+                                <input type="text" id="expiryDate" name="expiry" 
+                                       placeholder="MM/AA" maxlength="5"
+                                       autocomplete="cc-exp">
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <input type="password" id="cvv" name="cvv" 
+                                       placeholder="123" maxlength="4"
+                                       autocomplete="cc-csc">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cardHolder">Nombre del Titular</label>
+                            <input type="text" id="cardHolder" name="cardname" 
+                                   placeholder="Como aparece en la tarjeta"
+                                   autocomplete="cc-name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cardEmail">Correo Electrónico (para recibo)</label>
+                            <input type="email" id="cardEmail" name="email" 
+                                   placeholder="tu@email.com"
+                                   autocomplete="email">
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Formulario de PayPal -->
+                <div id="paypalPaymentForm" class="payment-form">
+                    <div class="paypal-simple">
+                        <div class="paypal-logo">
+                            <i class="fab fa-paypal"></i>
+                            <span>PayPal</span>
+                        </div>
+                        <p>Pago rápido y seguro con PayPal</p>
+                        <button type="button" class="btn-paypal-simple" id="btnPayPalSimple">
+                            <i class="fab fa-paypal"></i> Pagar con PayPal
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="payment-summary">
+                <h4>Resumen del Pedido</h4>
+                <div id="paymentItems"></div>
+                <div class="payment-total">
+                    <strong>Total: $<span id="paymentTotal">0</span></strong>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-secondary" id="cancelPayment">Cancelar</button>
+            <button class="btn-primary" id="processCardPayment">
+                <i class="fas fa-lock"></i> Pagar con Tarjeta
+            </button>
+            <button class="btn-paypal" id="processPayPalPayment" style="display: none;">
+                <i class="fab fa-paypal"></i> Pagar con PayPal
+            </button>
+        </div>
+    </div>
+</div>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="productModalTitle">Agregar al Carrito</h3>
+                <span class="close" id="closeProduct">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="rental-form">
+                    <div class="form-group">
+                        <label>Fecha de Inicio</label>
+                        <input type="date" id="startDate">
+                    </div>
+                    <div class="form-group">
+                        <label>Fecha de Fin</label>
+                        <input type="date" id="endDate">
+                    </div>
+                    <div class="form-group">
+                        <label>Cantidad</label>
+                        <input type="number" id="quantity" min="1" value="1">
+                    </div>
+                    <div class="rental-summary">
+                        <p>Días de renta: <span id="rentalDays">0</span></p>
+                        <p>Precio por día: $<span id="pricePerDay">0</span></p>
+                        <h4>Total: $<span id="rentalTotal">0</span></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="cancelRental">Cancelar</button>
+                <button class="btn-primary" id="addToCart">Agregar al Carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Punto Médico - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1137 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles - FIXED SIN ESPACIOS */
+.header {
+    background: linear-gradient(135deg, #2c5aa0, #1e3a8a);
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo i {
+    font-size: 2rem;
+    color: #60a5fa;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* NAVIGATION STYLES */
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+}
+
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.cart-icon:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+.cart-icon i {
+    font-size: 1.5rem;
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #ef4444;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* Main Content - Ajustado para header fixed */
+.main {
+    min-height: calc(100vh - 140px);
+    margin-top: 80px; /* Compensa el header fixed */
+}
+
+.content-section {
+    display: block;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Button Styles - TODOS LOS ESTILOS RESTAURADOS */
+.btn-primary {
+    background-color: #3b82f6;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.btn-secondary {
+    background-color: #6b7280;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-secondary:hover {
+    background-color: #4b5563;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Botones específicos para Cancelar y Agregar al Carrito */
+.btn-cancel {
+    background-color: #ef4444;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-cancel:hover {
+    background-color: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.btn-add-to-cart {
+    background-color: #10b981;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-add-to-cart:hover {
+    background-color: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Modal Styles - CARRITO */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #1f2937;
+}
+
+.close {
+    color: #6b7280;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #374151;
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.modal-footer {
+    padding: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+/* Cart Styles */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-info h4 {
+    margin-bottom: 0.5rem;
+    color: #1f2937;
+}
+
+.cart-item-info p {
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.cart-item-price {
+    font-weight: bold;
+    color: #10b981;
+}
+
+.cart-total {
+    text-align: center;
+    padding: 1rem;
+    border-top: 2px solid #e5e7eb;
+    margin-top: 1rem;
+}
+
+.cart-total h4 {
+    color: #1f2937;
+    font-size: 1.3rem;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.rental-form {
+    background-color: #f9fafb;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.rental-summary {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+.rental-summary p {
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.rental-summary h4 {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    color: #1f2937;
+}
+
+.payment-total {
+    background-color: #f0f9ff;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.payment-total h4 {
+    color: #1e40af;
+    font-size: 1.3rem;
+}
+
+/* Footer */
+.footer {
+    background-color: #1f2937;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+/* Estilos del menú hamburguesa - SIN ANIMACIÓN DE BAJADA */
+.hamburger-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    z-index: 1001;
+    /* Quitamos la transición que causaba el movimiento */
+}
+
+.hamburger-line {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+/* Estados del menú hamburguesa */
+.hamburger-btn.active .hamburger-line:nth-child(1) {
+    transform: translateY(10.5px) rotate(45deg);
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(3) {
+    transform: translateY(-10.5px) rotate(-45deg);
+}
+
+/* Tooltip para el botón hamburguesa */
+.hamburger-btn::after {
+    content: "Abrir menú";
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1002;
+}
+
+.hamburger-btn:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hamburger-btn.active::after {
+    content: "Cerrar menú";
+}
+
+/* CARRITO EN MÓVIL - Siempre visible en esquina derecha */
+.cart-mobile {
+    display: none;
+    position: absolute;
+    right: 60px; /* A la izquierda del botón hamburguesa */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+}
+
+.cart-mobile .cart-icon {
+    display: block;
+}
+
+/* Menú móvil */
+@media (max-width: 768px) {
+    .header {
+        padding: 0.8rem 0;
+    }
+    
+    .header .container {
+        padding: 0 15px;
+    }
+    
+    .hamburger-btn {
+        display: flex;
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    /* Carrito siempre visible en móvil - esquina inferior derecha */
+    .cart-icon {
+        display: flex !important;
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        left: auto;
+        top: auto;
+        z-index: 999;
+        background: linear-gradient(135deg, #2c5aa0, #1e3a8a);
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+    }
+    
+    /* Efecto hover para el carrito */
+    .cart-icon:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    }
+    
+    /* Ajustar posición cuando el menú está abierto */
+    body.menu-open .cart-icon {
+        right: 20px;
+        bottom: 20px;
+        transform: none;
+    }
+    
+    .nav-list {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: linear-gradient(135deg, #2c5aa0, #1e3a8a);
+        flex-direction: column;
+        padding: 120px 2rem 2rem;
+        transition: right 0.3s ease;
+        z-index: 1000;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .nav-list.active {
+        right: 0;
+    }
+    
+    .nav-list li {
+        margin: 0;
+        width: 100%;
+        opacity: 0;
+        transform: translateX(20px);
+        transition: all 0.3s ease;
+    }
+    
+    .nav-list.active li {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    .nav-link {
+        display: block;
+        padding: 1.2rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        text-align: left;
+        font-size: 1.1rem;
+    }
+    
+    .nav-link:hover,
+    .nav-link.active {
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: translateX(5px);
+    }
+    
+    /* Animación de entrada para los items del menú */
+    .nav-list.active li:nth-child(1) { transition-delay: 0.1s; }
+    .nav-list.active li:nth-child(2) { transition-delay: 0.2s; }
+    .nav-list.active li:nth-child(3) { transition-delay: 0.3s; }
+    .nav-list.active li:nth-child(4) { transition-delay: 0.4s; }
+    
+    /* Botones en móvil */
+    .btn-primary, .btn-secondary, .btn-cancel, .btn-add-to-cart {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1.1rem;
+    }
+}
+
+/* Mejoras para tablets más grandes */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .nav-list {
+        gap: 1.5rem;
+    }
+    
+    .nav-link {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .header {
+        padding: 0.7rem 0;
+    }
+    
+    .hamburger-btn {
+        width: 25px;
+        height: 20px;
+        right: 10px;
+    }
+    
+    .cart-mobile {
+        right: 50px; /* Ajustado para pantallas pequeñas */
+    }
+    
+    .hamburger-line {
+        height: 2.5px;
+    }
+    
+    .hamburger-btn.active .hamburger-line:nth-child(1) {
+        transform: translateY(8.5px) rotate(45deg);
+    }
+    
+    .hamburger-btn.active .hamburger-line:nth-child(3) {
+        transform: translateY(-8.5px) rotate(-45deg);
+    }
+    
+    .nav-list {
+        width: 100%;
+        right: -100%;
+        padding: 100px 1.5rem 2rem; /* Más compacto en móviles pequeños */
+    }
+    
+    .nav-link {
+        font-size: 1rem;
+        padding: 1rem 0;
+    }
+    
+    .main {
+        margin-top: 70px; /* Ajuste para header más compacto */
+    }
+    
+    /* Botones en móviles pequeños */
+    .btn-primary, .btn-secondary, .btn-cancel, .btn-add-to-cart {
+        padding: 0.9rem 1.2rem;
+        font-size: 1rem;
+    }
+}
+
+/* Accesibilidad - focus states */
+.hamburger-btn:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+.hamburger-btn:focus::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Prevenir scroll cuando el menú está abierto */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* Responsive Design adicional */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .nav-list {
+        gap: 0;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        margin: 10% auto;
+        width: 95%;
+    }
+
+    .modal-footer {
+        flex-direction: column;
+    }
+    
+    .modal-footer .btn-primary, 
+    .modal-footer .btn-secondary,
+    .modal-footer .btn-cancel {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Sistema de pago simple */
+.payment-method-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.payment-tab {
+    flex: 1;
+    padding: 1rem;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-weight: 600;
+    color: #6b7280;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.payment-tab.active {
+    color: #3b82f6;
+    border-bottom-color: #3b82f6;
+}
+
+.payment-tab:hover {
+    color: #2563eb;
+}
+
+.payment-form {
+    display: none;
+}
+
+.payment-form.active {
+    display: block;
+}
+
+.card-type-selector {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.card-type-option {
+    flex: 1;
+    cursor: pointer;
+}
+
+.card-type-option input {
+    display: none;
+}
+
+.card-type-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    color: #6b7280;
+}
+
+.card-type-option input:checked + .card-type-label {
+    border-color: #3b82f6;
+    background-color: #eff6ff;
+    color: #3b82f6;
+}
+
+.paypal-simple {
+    text-align: center;
+    padding: 2rem;
+}
+
+.paypal-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 2rem;
+    color: #003087;
+    margin-bottom: 1rem;
+}
+
+.paypal-logo i {
+    font-size: 2.5rem;
+}
+
+.btn-paypal-simple {
+    width: 100%;
+    padding: 1rem;
+    background: #0070ba;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 1rem;
+}
+
+.btn-paypal-simple:hover {
+    background: #005ea6;
+}
+
+.btn-paypal {
+    background: #0070ba !important;
+    color: white !important;
+}
+
+.btn-paypal:hover {
+    background: #005ea6 !important;
+}
+
+.payment-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.payment-total {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #1e40af;
+    padding-top: 1rem;
+    border-top: 2px solid #e5e7eb;
+    margin-top: 1rem;
+}
+
+/* Estados de carga */
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #3b82f6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Validación de formularios */
+.form-group.error input {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.error-message {
+    color: #ef4444;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    display: none;
+}
+
+.form-group.error .error-message {
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .payment-method-tabs {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .card-type-selector {
+        flex-direction: column;
+    }
+    
+    .payment-summary {
+        padding: 1rem;
+    }
+}
+
+/* Estilos mejorados para PayPal */
+.paypal-container {
+    padding: 1rem;
+}
+
+.paypal-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.paypal-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 2rem;
+    color: #003087;
+    margin-bottom: 1rem;
+}
+
+.paypal-logo i {
+    font-size: 2.5rem;
+}
+
+.paypal-login-form {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.btn-paypal-login {
+    width: 100%;
+    padding: 1rem;
+    background: #0070ba;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.btn-paypal-login:hover {
+    background: #005ea6;
+}
+
+.btn-paypal-guest {
+    width: 100%;
+    padding: 1rem;
+    background: transparent;
+    color: #0070ba;
+    border: 2px solid #0070ba;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-paypal-guest:hover {
+    background: #0070ba;
+    color: white;
+}
+
+.paypal-divider {
+    text-align: center;
+    margin: 1.5rem 0;
+    position: relative;
+}
+
+.paypal-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #e5e7eb;
+}
+
+.paypal-divider span {
+    background: white;
+    padding: 0 1rem;
+    color: #6b7280;
+}
+
+.btn-paypal {
+    background: #0070ba !important;
+    color: white !important;
+    border: none !important;
+}
+
+.btn-paypal:hover {
+    background: #005ea6 !important;
+}
+
+.paypal-redirect-content {
+    text-align: center;
+    padding: 2rem;
+}
+
+.loading-spinner {
+    font-size: 3rem;
+    color: #0070ba;
+    margin-bottom: 1rem;
+}
+
+.security-notice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    color: #10b981;
+    font-weight: 600;
+}
+
+/* Mejoras para autocompletado */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #333;
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Estados de validación mejorados */
+.form-group:focus-within label {
+    color: #0070ba;
+}
+
+/* Responsive mejorado */
+@media (max-width: 768px) {
+    .paypal-login-form {
+        padding: 1.5rem;
+    }
+    
+    .btn-paypal-login,
+    .btn-paypal-guest {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+
+    .btn-paypal {
+        padding: 0.7rem 1.2rem !important;
+        font-size: 0.95rem !important;
+        border-radius: 5px !important;
+    }
+}
+
+/* Estilos para autocompletado */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #333;
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* PayPal button container */
+#paypal-button-container {
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.paypal-info {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.paypal-info p {
+    margin: 0.5rem 0;
+    color: #666;
+}
+
+/* Estilos específicos para los botones Cancelar y Agregar al Carrito */
+.btn-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.btn-group .btn-cancel,
+.btn-group .btn-add-to-cart {
+    flex: 1;
+    min-width: 150px;
+}
+
+/* Estilos para formularios de productos */
+.product-actions {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+    align-items: center;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.quantity-btn {
+    background: #f3f4f6;
+    border: 1px solid #d1d5db;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.quantity-btn:hover {
+    background: #e5e7eb;
+}
+
+.quantity-input {
+    width: 60px;
+    text-align: center;
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+    font-size: 1rem;
+}

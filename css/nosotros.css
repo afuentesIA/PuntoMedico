@@ -1,0 +1,205 @@
+/* About Section */
+.about-section {
+    padding: 4rem 0;
+}
+
+.about-section h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+    color: #1f2937;
+    font-weight: 700;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* Imagen más grande */
+    gap: 4rem; /* Más espacio entre texto e imagen */
+    align-items: start; /* Alinear al inicio */
+}
+
+.about-text p {
+    margin-bottom: 1.8rem;
+    font-size: 1.2rem; /* Texto más grande */
+    line-height: 1.8;
+    color: #4b5563;
+    text-align: justify; /* Texto justificado */
+    text-justify: inter-word;
+}
+
+.about-image {
+    text-align: center;
+    position: relative;
+}
+
+.about-img {
+    width: 100%;
+    max-width: 500px; /* Imagen más grande */
+    height: 400px; /* Altura fija más grande */
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+    object-fit: cover; /* Asegura que la imagen cubra el espacio */
+    object-position: center;
+}
+
+.about-img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+/* Efecto decorativo para la imagen */
+.about-image::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: 15px;
+    bottom: 15px;
+    background: linear-gradient(135deg, #3b82f6, #1e40af);
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0.1;
+}
+
+.about-image::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: -15px;
+    bottom: -15px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0.1;
+}
+
+/* Estilos para cuando la imagen no carga */
+.about-image .image-placeholder {
+    width: 100%;
+    height: 400px; /* Misma altura que la imagen */
+    background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    font-size: 1.2rem;
+}
+
+/* Responsive para nosotros */
+@media (max-width: 1200px) {
+    .about-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+    
+    .about-img {
+        height: 350px;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .about-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+    }
+    
+    .about-section h2 {
+        font-size: 2.5rem;
+    }
+    
+    .about-text p {
+        font-size: 1.1rem;
+    }
+    
+    .about-img {
+        height: 320px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
+    }
+    
+    .about-section h2 {
+        font-size: 2.2rem;
+    }
+    
+    .about-text p {
+        text-align: left; /* En móvil, left es más legible */
+        font-size: 1.1rem;
+    }
+    
+    .about-image {
+        order: -1;
+    }
+    
+    .about-img {
+        max-width: 400px;
+        height: 300px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-section {
+        padding: 2.5rem 0;
+    }
+    
+    .about-section h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .about-text p {
+        font-size: 1rem;
+        text-align: left;
+        line-height: 1.7;
+    }
+    
+    .about-img {
+        max-width: 100%;
+        height: 250px;
+    }
+    
+    .about-content {
+        gap: 2rem;
+    }
+}
+
+/* Animación de entrada para la imagen */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about-img {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* Mejora la legibilidad del texto justificado */
+.about-text {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.about-text p:first-child {
+    margin-top: 0.5rem;
+}
+
+.about-text p:last-child {
+    margin-bottom: 0;
+}

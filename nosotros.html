@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quiénes Somos? - Punto Médico</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/nosotros.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+<div class="logo" onclick="window.location.href='./index.html'" style="cursor: pointer;">
+    <i class="fas fa-heartbeat"></i>
+    <h1>Punto Médico</h1>
+</div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="./index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="./nosotros.html" class="nav-link active">¿Quiénes Somos?</a></li>
+                    <li><a href="./productos.html" class="nav-link">Productos</a></li>
+                    <li><a href="./contacto.html" class="nav-link">Contacto</a></li>
+                </ul>
+
+                              <!-- Botón del menú hamburguesa -->
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Abrir menú" title="Abrir menú de navegación">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+    </button>
+
+            </nav>
+            <div class="cart-icon" id="cartIcon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Nosotros Section -->
+        <section class="content-section">
+            <div class="container">
+                <div class="about-section">
+                    <h2>¿Quiénes Somos?</h2>
+                    <div class="about-content">
+                        <div class="about-text">
+                            <p>Bienvenidos a Punto Médico, su proveedor de confianza de material hospitalario en Guadalajara, Jalisco. Ubicados en la Colonia El Retiro, nos dedicamos a ofrecer soluciones de calidad para el sector de la salud, priorizando siempre la seguridad y el bienestar.</p>
+                            
+                            <p>En Punto Médico, entendemos la importancia de contar con insumos médicos confiables y eficientes. Por eso, trabajamos con los mejores fabricantes y distribuidores, asegurando que nuestros productos cumplan con los más altos estándares de calidad.</p>
+                            
+                            <p>Nuestro equipo está compuesto por profesionales comprometidos y capacitados, dispuestos a brindar un servicio personalizado y asesoría experta. Ya sea que necesite equipos médicos, insumos quirúrgicos o materiales de higiene, estamos aquí para ayudarle a encontrar lo que necesita.</p>
+                        </div>
+                        <div class="about-image">
+                            <img src="./images/About.png" alt="Punto Médico - Nuestras instalaciones" class="about-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Carrito de Compras</h3>
+                <span class="close" id="closeCart">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="cartItems"></div>
+                <div class="cart-total">
+                    <h4>Total: $<span id="cartTotal">0</span></h4>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="clearCart">Vaciar Carrito</button>
+                <button class="btn-primary" id="proceedPayment">Proceder al Pago</button>
+            </div>
+        </div>
+    </div>
+
+<!-- Payment Modal -->
+<div id="paymentModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Procesar Pago</h3>
+            <span class="close" id="closePayment">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div class="payment-methods">
+                <div class="payment-method-tabs">
+                    <button type="button" class="payment-tab active" data-method="card">
+                        <i class="fas fa-credit-card"></i>
+                        Tarjeta
+                    </button>
+                    <button type="button" class="payment-tab" data-method="paypal">
+                        <i class="fab fa-paypal"></i>
+                        PayPal
+                    </button>
+                </div>
+
+                <!-- Formulario de Tarjeta -->
+                <div id="cardPaymentForm" class="payment-form active">
+                    <form autocomplete="on">
+                        <div class="form-group">
+                            <label for="cardType">Tipo de Tarjeta</label>
+                            <div class="card-type-selector">
+                                <label class="card-type-option">
+                                    <input type="radio" name="cardType" value="credit" checked 
+                                           autocomplete="cc-type">
+                                    <span class="card-type-label">
+                                        <i class="fas fa-credit-card"></i>
+                                        Crédito
+                                    </span>
+                                </label>
+                                <label class="card-type-option">
+                                    <input type="radio" name="cardType" value="debit"
+                                           autocomplete="cc-type">
+                                    <span class="card-type-label">
+                                        <i class="fas fa-credit-card"></i>
+                                        Débito
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cardNumber">Número de Tarjeta</label>
+                            <input type="text" id="cardNumber" name="cardnumber" 
+                                   placeholder="1234 5678 9012 3456" maxlength="19"
+                                   autocomplete="cc-number">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expiryDate">Fecha de Vencimiento</label>
+                                <input type="text" id="expiryDate" name="expiry" 
+                                       placeholder="MM/AA" maxlength="5"
+                                       autocomplete="cc-exp">
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <input type="password" id="cvv" name="cvv" 
+                                       placeholder="123" maxlength="4"
+                                       autocomplete="cc-csc">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cardHolder">Nombre del Titular</label>
+                            <input type="text" id="cardHolder" name="cardname" 
+                                   placeholder="Como aparece en la tarjeta"
+                                   autocomplete="cc-name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cardEmail">Correo Electrónico (para recibo)</label>
+                            <input type="email" id="cardEmail" name="email" 
+                                   placeholder="tu@email.com"
+                                   autocomplete="email">
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Formulario de PayPal -->
+                <div id="paypalPaymentForm" class="payment-form">
+                    <div class="paypal-simple">
+                        <div class="paypal-logo">
+                            <i class="fab fa-paypal"></i>
+                            <span>PayPal</span>
+                        </div>
+                        <p>Pago rápido y seguro con PayPal</p>
+                        <button type="button" class="btn-paypal-simple" id="btnPayPalSimple">
+                            <i class="fab fa-paypal"></i> Pagar con PayPal
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="payment-summary">
+                <h4>Resumen del Pedido</h4>
+                <div id="paymentItems"></div>
+                <div class="payment-total">
+                    <strong>Total: $<span id="paymentTotal">0</span></strong>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-secondary" id="cancelPayment">Cancelar</button>
+            <button class="btn-primary" id="processCardPayment">
+                <i class="fas fa-lock"></i> Pagar con Tarjeta
+            </button>
+            <button class="btn-paypal" id="processPayPalPayment" style="display: none;">
+                <i class="fab fa-paypal"></i> Pagar con PayPal
+            </button>
+        </div>
+    </div>
+</div>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="productModalTitle">Agregar al Carrito</h3>
+                <span class="close" id="closeProduct">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="rental-form">
+                    <div class="form-group">
+                        <label>Fecha de Inicio</label>
+                        <input type="date" id="startDate">
+                    </div>
+                    <div class="form-group">
+                        <label>Fecha de Fin</label>
+                        <input type="date" id="endDate">
+                    </div>
+                    <div class="form-group">
+                        <label>Cantidad</label>
+                        <input type="number" id="quantity" min="1" value="1">
+                    </div>
+                    <div class="rental-summary">
+                        <p>Días de renta: <span id="rentalDays">0</span></p>
+                        <p>Precio por día: $<span id="pricePerDay">0</span></p>
+                        <h4>Total: $<span id="rentalTotal">0</span></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="cancelRental">Cancelar</button>
+                <button class="btn-primary" id="addToCart">Agregar al Carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Punto Médico - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
