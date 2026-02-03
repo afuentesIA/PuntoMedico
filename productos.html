@@ -3,259 +3,739 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos - Punto Médico</title>
-    <link rel="stylesheet" href="./css/styles.css">
+    <title>Productos Médicos - Punto Médico | Catálogo de Material Hospitalario en Guadalajara</title>
+    <meta name="description" content="Catálogo completo de productos médicos de Punto Médico. Equipos hospitalarios, insumos médicos, material quirúrgico y más. Proveedor en Guadalajara, Jalisco.">
+    <meta name="keywords" content="productos médicos, equipos hospitalarios, insumos médicos, material quirúrgico, catálogo médico, Guadalajara, proveedor médico">
+    <meta name="author" content="Punto Médico">
+    <!-- Solo un CSS unificado -->
     <link rel="stylesheet" href="./css/productos.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-spinner"></div>
+    </div>
+
+    <!-- Header (ACTUALIZADO para igualar index.html) -->
+    <header class="header" role="banner">
         <div class="container">
-          <div class="logo" onclick="window.location.href='./index.html'" style="cursor: pointer;">
-    <i class="fas fa-heartbeat"></i>
-    <h1>Punto Médico</h1>
-</div>
-            <nav class="nav">
+            <div class="logo" onclick="window.location.href='./index.html'" style="cursor: pointer;">
+                <i class="fas fa-heartbeat" aria-hidden="true"></i>
+                <div>
+                    <h1>Punto Médico</h1>
+                    <p class="logo-subtitle">Material Hospitalario</p>
+                </div>
+            </div>
+            
+            <nav class="nav" role="navigation" aria-label="Navegación principal">
                 <ul class="nav-list">
                     <li><a href="./index.html" class="nav-link" data-tab="inicio">Inicio</a></li>
                     <li><a href="./nosotros.html" class="nav-link" data-tab="nosotros">¿Quiénes Somos?</a></li>
                     <li><a href="./productos.html" class="nav-link active" data-tab="productos">Productos</a></li>
                     <li><a href="./contacto.html" class="nav-link" data-tab="contacto">Contacto</a></li>
+                    <!-- BOTÓN DE LLAMADA PARA MÓVIL DENTRO DEL MENÚ (AGREGADO) -->
+                    <li class="mobile-call-item">
+                        <a href="tel:+5233XXXXXXX" class="nav-call-btn">
+                            <i class="fas fa-phone-alt"></i>
+                            Llamar ahora
+                        </a>
+                    </li>
                 </ul>
-
-                              <!-- Botón del menú hamburguesa -->
-    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Abrir menú" title="Abrir menú de navegación">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-    </button>
-    
+                
+                <button class="hamburger-btn" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
             </nav>
-            <div class="cart-icon" id="cartIcon">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="cart-count" id="cartCount">0</span>
+            
+            <div class="header-actions">
+                <div class="cart-icon" id="cartIcon" role="button" tabindex="0" aria-label="Abrir carrito">
+                    <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+                <a href="tel:+5233XXXXXXX" class="btn-call">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>Llamar ahora</span>
+                </a>
             </div>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="main">
-        <!-- Productos Tab -->
-        <section id="productos" class="tab-content active">
-            <div class="container">
-                <h2>Productos para Venta</h2>
+    <!-- CARRITO FLOTANTE PARA MÓVIL (AGREGADO - igual que index.html) -->
+    <div class="cart-float-mobile" id="cartFloatMobile" role="button" tabindex="0" aria-label="Abrir carrito">
+        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+        <span class="cart-count" id="cartCountMobile">0</span>
+    </div>
 
-                <div class="category-dropdown">
-                    <button class="category-dropdown-btn" id="categoryDropdownBtn">
-                        <span class="category-selected">
-                            <i class="fas fa-th"></i>
-                            <span id="selectedCategoryText">Todos</span>
-                        </span>
-                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+    <!-- Search Overlay -->
+    <div class="search-overlay">
+        <div class="container">
+            <div class="search-content">
+                <button class="search-close">
+                    <i class="fas fa-times"></i>
+                </button>
+                <form class="search-form">
+                    <input type="text" placeholder="Buscar productos médicos..." class="search-input">
+                    <button type="submit" class="search-submit">
+                        <i class="fas fa-search"></i>
                     </button>
-                    <div class="category-dropdown-menu" id="categoryDropdownMenu">
-                        <div class="category-option" data-category="todos">
-                            <i class="fas fa-th"></i>
-                            <span>Todos</span>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section hero-minimal">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Catálogo de Productos Médicos</h1>
+                    <p class="hero-subtitle">Equipamiento de calidad para profesionales de la salud. Materiales certificados y de última generación.</p>
+                </div>
+            </div>
+            <div class="hero-background"></div>
+        </section>
+
+        <!-- Filtros Mejorados -->
+        <section class="filters-section">
+            <div class="container">
+                <div class="filters-container">
+                    <!-- Búsqueda Rápida -->
+                    <div class="filter-group">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="productSearch" placeholder="Buscar producto..." class="search-box-input">
                         </div>
-                        <div class="category-option" data-category="agujas-biopsia">
-                            <i class="fas fa-syringe"></i>
-                            <span>Agujas para Biopsia</span>
+                    </div>
+
+                    <!-- Filtros por Categoría -->
+                    <div class="filter-group">
+                        <div class="filter-tags">
+                            <button class="filter-tag active" data-category="todos">
+                                <span>Todos</span>
+                            </button>
+                            <button class="filter-tag" data-category="agujas-biopsia">
+                                <i class="fas fa-syringe"></i>
+                                <span>Agujas</span>
+                            </button>
+                            <button class="filter-tag" data-category="cateteres">
+                                <i class="fas fa-procedures"></i>
+                                <span>Catéteres</span>
+                            </button>
+                            <button class="filter-tag" data-category="drenajes">
+                                <i class="fas fa-tint"></i>
+                                <span>Drenajes</span>
+                            </button>
+                            <button class="filter-tag" data-category="otros-materiales">
+                                <i class="fas fa-tools"></i>
+                                <span>Materiales</span>
+                            </button>
                         </div>
-                        <div class="category-option" data-category="cateteres">
-                            <i class="fas fa-notes-medical"></i>
-                            <span>Catéteres</span>
+                    </div>
+
+                    <!-- Ordenar y Mostrar -->
+                    <div class="filter-group">
+                        <div class="filter-controls">
+                            <div class="select-wrapper">
+                                <select id="sortSelect" class="select-control">
+                                    <option value="default">Ordenar por</option>
+                                    <option value="price-asc">Menor precio</option>
+                                    <option value="price-desc">Mayor precio</option>
+                                    <option value="name-asc">Nombre A-Z</option>
+                                    <option value="name-desc">Nombre Z-A</option>
+                                </select>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
                         </div>
-                        <div class="category-option" data-category="drenajes">
-                            <i class="fas fa-droplet"></i>
-                            <span>Drenajes</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Grid -->
+        <section class="products-section">
+            <div class="container">
+                <!-- Encabezado de productos -->
+                <div class="section-header">
+                    <div class="section-info">
+                        <h2 class="section-title">Productos Disponibles</h2>
+                        <p class="section-subtitle">Selecciona entre nuestra amplia gama de productos médicos</p>
+                    </div>
+                    <div class="section-meta">
+                        <span class="product-count" id="productCount">46 productos</span>
+                    </div>
+                </div>
+
+                <!-- Grid de productos -->
+                <div class="products-grid" id="productsGrid">
+                    <!-- Producto 1 - Monitor de Signos Vitales -->
+                    <div class="product-card" data-category="monitoreo">
+                        <div class="product-badge">Más Vendido</div>
+                        <div class="product-image">
+                            <img src="./images/producto-monitor.jpg" alt="Monitor de signos vitales multiparámetro">
                         </div>
-                        <div class="category-option" data-category="otros-materiales">
-                            <i class="fas fa-box"></i>
-                            <span>Otros Materiales</span>
+                        <div class="product-content">
+                            <div class="product-category">Monitoreo</div>
+                            <h3 class="product-title">Monitor de Signos Vitales</h3>
+                            <p class="product-description">Monitoreo continuo de ECG, presión arterial, SpO2 y temperatura.</p>
+                            <div class="product-specs">
+                                <span class="product-spec">Multiparámetro</span>
+                                <span class="product-spec">Pantalla LED</span>
+                                <span class="product-spec">Portátil</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="product-price">$15,500</div>
+                                <div class="product-actions">
+                                    <button class="product-action-btn btn-view" data-product="monitor-signos">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="product-action-btn btn-cart" data-product="monitor-signos">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 2 - Ventilador Mecánico -->
+                    <div class="product-card" data-category="terapia">
+                        <div class="product-badge">Nuevo</div>
+                        <div class="product-image">
+                            <img src="./images/producto-ventilador.jpg" alt="Ventilador mecánico portátil">
+                        </div>
+                        <div class="product-content">
+                            <div class="product-category">Terapia</div>
+                            <h3 class="product-title">Ventilador Mecánico</h3>
+                            <p class="product-description">Ventilador portátil para cuidados intensivos y transporte.</p>
+                            <div class="product-specs">
+                                <span class="product-spec">Portátil</span>
+                                <span class="product-spec">Batería 8h</span>
+                                <span class="product-spec">Digital</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="product-price">$89,900</div>
+                                <div class="product-actions">
+                                    <button class="product-action-btn btn-view" data-product="ventilador">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="product-action-btn btn-cart" data-product="ventilador">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 3 - Ecógrafo Portátil -->
+                    <div class="product-card" data-category="diagnostico">
+                        <div class="product-badge">15% OFF</div>
+                        <div class="product-image">
+                            <img src="./images/producto-ecografo.jpg" alt="Ecógrafo portátil de alta resolución">
+                        </div>
+                        <div class="product-content">
+                            <div class="product-category">Diagnóstico</div>
+                            <h3 class="product-title">Ecógrafo Portátil</h3>
+                            <p class="product-description">Equipo de ultrasonido diagnóstico con tecnología Doppler.</p>
+                            <div class="product-specs">
+                                <span class="product-spec">Color Doppler</span>
+                                <span class="product-spec">Pantalla 15"</span>
+                                <span class="product-spec">Portátil</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="product-price">
+                                    <span style="text-decoration: line-through; color: #999; font-size: 0.9rem;">$50,500</span>
+                                    <span style="color: #ff4444;">$42,800</span>
+                                </div>
+                                <div class="product-actions">
+                                    <button class="product-action-btn btn-view" data-product="ecografo">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="product-action-btn btn-cart" data-product="ecografo">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 4 - Bomba de Infusión -->
+                    <div class="product-card" data-category="terapia">
+                        <div class="product-image">
+                            <img src="./images/producto-bomba.jpg" alt="Bomba de infusión con control de dosis">
+                        </div>
+                        <div class="product-content">
+                            <div class="product-category">Terapia</div>
+                            <h3 class="product-title">Bomba de Infusión</h3>
+                            <p class="product-description">Bomba de infusión volumétrica con control preciso de dosis.</p>
+                            <div class="product-specs">
+                                <span class="product-spec">Volumétrica</span>
+                                <span class="product-spec">Control digital</span>
+                                <span class="product-spec">Alarmas</span>
+                            </div>
+                            <div class="product-footer">
+                                <div class="product-price">$28,500</div>
+                                <div class="product-actions">
+                                    <button class="product-action-btn btn-view" data-product="bomba-infusion">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="product-action-btn btn-cart" data-product="bomba-infusion">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="products-grid" id="productsGrid">
-                    <!-- Products will be loaded here by JavaScript -->
+                <!-- Estado vacío -->
+                <div class="empty-state" id="emptyState" style="display: none;">
+                    <div class="empty-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>No se encontraron productos</h3>
+                    <p>Intenta ajustar tus filtros o términos de búsqueda</p>
+                    <button class="btn btn-secondary" id="resetFilters">
+                        <i class="fas fa-redo"></i>
+                        Limpiar filtros
+                    </button>
+                </div>
+
+                <!-- Paginación -->
+                <div class="pagination" id="pagination">
+                    <button class="pagination-btn prev" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="pagination-numbers">
+                        <button class="pagination-number active">1</button>
+                        <button class="pagination-number">2</button>
+                        <button class="pagination-number">3</button>
+                        <span class="pagination-ellipsis">...</span>
+                        <button class="pagination-number">8</button>
+                    </div>
+                    <button class="pagination-btn next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="featured-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Productos Destacados</h2>
+                    <a href="./productos.html?filter=featured" class="section-link">
+                        Ver todos
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="featured-grid" id="featuredGrid">
+                    <!-- Producto Destacado 1 -->
+                    <div class="featured-product">
+                        <div class="featured-product-image">
+                            <img src="./images/producto-monitor.jpg" alt="Monitor de signos vitales">
+                        </div>
+                        <h4>Monitor de Signos Vitales</h4>
+                        <div class="featured-product-price">$15,500</div>
+                        <button class="btn btn-primary btn-small">Ver detalles</button>
+                    </div>
+
+                    <!-- Producto Destacado 2 -->
+                    <div class="featured-product">
+                        <div class="featured-product-image">
+                            <img src="./images/producto-ecografo.jpg" alt="Ecógrafo portátil">
+                        </div>
+                        <h4>Ecógrafo Portátil</h4>
+                        <div class="featured-product-price">$42,800</div>
+                        <button class="btn btn-primary btn-small">Ver detalles</button>
+                    </div>
+
+                    <!-- Producto Destacado 3 -->
+                    <div class="featured-product">
+                        <div class="featured-product-image">
+                            <img src="./images/producto-bomba.jpg" alt="Bomba de infusión">
+                        </div>
+                        <h4>Bomba de Infusión</h4>
+                        <div class="featured-product-price">$28,500</div>
+                        <button class="btn btn-primary btn-small">Ver detalles</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <div class="cta-text">
+                        <h2>¿Necesitas productos especializados?</h2>
+                        <p>Contamos con asesoría personalizada para ayudarte a encontrar el equipo médico adecuado para tus necesidades.</p>
+                    </div>
+                    <div class="cta-actions">
+                        <a href="./contacto.html" class="btn btn-primary btn-large">
+                            <i class="fas fa-headset"></i>
+                            Contactar asesor
+                        </a>
+                        <a href="tel:+5233XXXXXXX" class="btn btn-secondary btn-large">
+                            <i class="fas fa-phone"></i>
+                            Llamar ahora
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
-
-    <!-- Cart Modal -->
-    <div id="cartModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Carrito de Compras</h3>
-                <span class="close" id="closeCart">&times;</span>
-            </div>
-            <div class="modal-body">
-                <div id="cartItems"></div>
-                <div class="cart-total">
-                    <h4>Total: $<span id="cartTotal">0</span></h4>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn-secondary" id="clearCart">Vaciar Carrito</button>
-                <button class="btn-primary" id="proceedPayment">Proceder al Pago</button>
-            </div>
-        </div>
-    </div>
-
-<!-- Payment Modal -->
-<div id="paymentModal" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3>Procesar Pago</h3>
-            <span class="close" id="closePayment">&times;</span>
-        </div>
-        <div class="modal-body">
-            <div class="payment-methods">
-                <div class="payment-method-tabs">
-                    <button type="button" class="payment-tab active" data-method="card">
-                        <i class="fas fa-credit-card"></i>
-                        Tarjeta
-                    </button>
-                    <button type="button" class="payment-tab" data-method="paypal">
-                        <i class="fab fa-paypal"></i>
-                        PayPal
-                    </button>
-                </div>
-
-                <!-- Formulario de Tarjeta -->
-                <div id="cardPaymentForm" class="payment-form active">
-                    <form autocomplete="on">
-                        <div class="form-group">
-                            <label for="cardType">Tipo de Tarjeta</label>
-                            <div class="card-type-selector">
-                                <label class="card-type-option">
-                                    <input type="radio" name="cardType" value="credit" checked 
-                                           autocomplete="cc-type">
-                                    <span class="card-type-label">
-                                        <i class="fas fa-credit-card"></i>
-                                        Crédito
-                                    </span>
-                                </label>
-                                <label class="card-type-option">
-                                    <input type="radio" name="cardType" value="debit"
-                                           autocomplete="cc-type">
-                                    <span class="card-type-label">
-                                        <i class="fas fa-credit-card"></i>
-                                        Débito
-                                    </span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="cardNumber">Número de Tarjeta</label>
-                            <input type="text" id="cardNumber" name="cardnumber" 
-                                   placeholder="1234 5678 9012 3456" maxlength="19"
-                                   autocomplete="cc-number">
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="expiryDate">Fecha de Vencimiento</label>
-                                <input type="text" id="expiryDate" name="expiry" 
-                                       placeholder="MM/AA" maxlength="5"
-                                       autocomplete="cc-exp">
-                            </div>
-                            <div class="form-group">
-                                <label for="cvv">CVV</label>
-                                <input type="password" id="cvv" name="cvv" 
-                                       placeholder="123" maxlength="4"
-                                       autocomplete="cc-csc">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="cardHolder">Nombre del Titular</label>
-                            <input type="text" id="cardHolder" name="cardname" 
-                                   placeholder="Como aparece en la tarjeta"
-                                   autocomplete="cc-name">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="cardEmail">Correo Electrónico (para recibo)</label>
-                            <input type="email" id="cardEmail" name="email" 
-                                   placeholder="tu@email.com"
-                                   autocomplete="email">
-                        </div>
-                    </form>
-                </div>
-
-                <!-- Formulario de PayPal -->
-                <div id="paypalPaymentForm" class="payment-form">
-                    <div class="paypal-simple">
-                        <div class="paypal-logo">
-                            <i class="fab fa-paypal"></i>
-                            <span>PayPal</span>
-                        </div>
-                        <p>Pago rápido y seguro con PayPal</p>
-                        <button type="button" class="btn-paypal-simple" id="btnPayPalSimple">
-                            <i class="fab fa-paypal"></i> Pagar con PayPal
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="payment-summary">
-                <h4>Resumen del Pedido</h4>
-                <div id="paymentItems"></div>
-                <div class="payment-total">
-                    <strong>Total: $<span id="paymentTotal">0</span></strong>
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button class="btn-secondary" id="cancelPayment">Cancelar</button>
-            <button class="btn-primary" id="processCardPayment">
-                <i class="fas fa-lock"></i> Pagar con Tarjeta
-            </button>
-            <button class="btn-paypal" id="processPayPalPayment" style="display: none;">
-                <i class="fab fa-paypal"></i> Pagar con PayPal
-            </button>
-        </div>
-    </div>
-</div>
-
-    <!-- Product Modal -->
-    <div id="productModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="productModalTitle">Agregar al Carrito</h3>
-                <span class="close" id="closeProduct">&times;</span>
-            </div>
-            <div class="modal-body">
-                <div class="purchase-form">
-                    <div class="form-group">
-                        <label>Cantidad</label>
-                        <input type="number" id="quantity" min="1" value="1">
-                    </div>
-                    <div class="purchase-summary">
-                        <p>Precio unitario: $<span id="pricePerUnit">0</span></p>
-                        <h4>Total: $<span id="purchaseTotal">0</span></h4>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn-secondary" id="cancelBuy">Cancelar</button>
-                <button class="btn-primary" id="addToCart">Agregar al Carrito</button>
-            </div>
-        </div>
-    </div>
-
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
-            <p>&copy; 2025 Punto Médico - Todos los derechos reservados</p>
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <i class="fas fa-heartbeat"></i>
+                        <h3>Punto Médico</h3>
+                    </div>
+                    <p class="footer-description">Proveedor líder de material hospitalario en Guadalajara, Jalisco. Especialistas en venta y renta de equipos médicos.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="./index.html">Inicio</a></li>
+                        <li><a href="./nosotros.html">¿Quiénes Somos?</a></li>
+                        <li><a href="./productos.html">Productos</a></li>
+                        <li><a href="./contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Categorías</h4>
+                    <ul class="footer-links">
+                        <li><a href="./productos.html?category=diagnostico">Equipos de Diagnóstico</a></li>
+                        <li><a href="./productos.html?category=monitoreo">Monitoreo</a></li>
+                        <li><a href="./productos.html?category=terapia">Terapia y Rehabilitación</a></li>
+                        <li><a href="./productos.html?category=mobiliario">Mobiliario Hospitalario</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contacto</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Av. López Mateos Sur 1234<br>Guadalajara, Jalisco</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <a href="tel:+5233XXXXXXX">33 XXXX XXXX</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:contacto@puntomedico.com">contacto@puntomedico.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Lun-Vie: 8:00 - 18:00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 Punto Médico - Todos los derechos reservados</p>
+                    <div class="footer-legal">
+                        <a href="./privacidad.html">Política de Privacidad</a>
+                        <span class="sep">|</span>
+                        <a href="./terminos.html">Términos y Condiciones</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 
+    <!-- WhatsApp Flotante -->
+    <a href="https://wa.me/5233XXXXXXX" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Botón Volver Arriba -->
+    <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- JavaScript -->
     <script src="./js/script.js"></script>
+    <script src="./js/products.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Menú hamburguesa con transformación a X (IGUAL QUE INDEX)
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navList = document.querySelector('.nav-list');
+        
+        hamburgerBtn.addEventListener('click', function() {
+            navList.classList.toggle('active');
+            this.classList.toggle('active');
+            this.setAttribute('aria-expanded', navList.classList.contains('active'));
+        });
+        
+        // Cerrar menú al hacer clic en un enlace (IGUAL QUE INDEX)
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+                hamburgerBtn.classList.remove('active');
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+        
+        // Botón volver arriba
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+        
+        // Sincronizar contadores del carrito (IGUAL QUE INDEX)
+        const cartCount = document.getElementById('cartCount');
+        const cartCountMobile = document.getElementById('cartCountMobile');
+        
+        function updateCartCounts(count) {
+            cartCount.textContent = count;
+            if (cartCountMobile) {
+                cartCountMobile.textContent = count;
+            }
+        }
+        
+        // Inicializar contadores
+        updateCartCounts(0);
+        
+        // Funcionalidad para carrito flotante móvil (IGUAL QUE INDEX)
+        const cartFloatMobile = document.getElementById('cartFloatMobile');
+        if (cartFloatMobile) {
+            cartFloatMobile.addEventListener('click', function() {
+                const cartSidebar = document.getElementById('cartSidebar');
+                if (cartSidebar) {
+                    cartSidebar.classList.add('active');
+                }
+            });
+        }
+        
+        // Cerrar carrito sidebar
+        const cartSidebarClose = document.querySelector('.cart-sidebar-close');
+        if (cartSidebarClose) {
+            cartSidebarClose.addEventListener('click', function() {
+                const cartSidebar = document.getElementById('cartSidebar');
+                if (cartSidebar) {
+                    cartSidebar.classList.remove('active');
+                }
+            });
+        }
+        
+        // Cerrar carrito al hacer clic fuera
+        const cartSidebarBackdrop = document.querySelector('.cart-sidebar-backdrop');
+        if (cartSidebarBackdrop) {
+            cartSidebarBackdrop.addEventListener('click', function() {
+                const cartSidebar = document.getElementById('cartSidebar');
+                if (cartSidebar) {
+                    cartSidebar.classList.remove('active');
+                }
+            });
+        }
+
+        // Preloader
+        const preloader = document.querySelector('.preloader');
+        window.addEventListener('load', function() {
+            preloader.classList.add('hidden');
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 300);
+        });
+
+        // Filtros de productos
+        const filterTags = document.querySelectorAll('.filter-tag');
+        const productCards = document.querySelectorAll('.product-card');
+        const productSearch = document.getElementById('productSearch');
+        const emptyState = document.getElementById('emptyState');
+        const resetFiltersBtn = document.getElementById('resetFilters');
+        const sortSelect = document.getElementById('sortSelect');
+        
+        // Filtrar por categoría
+        filterTags.forEach(tag => {
+            tag.addEventListener('click', function() {
+                filterTags.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                const category = this.getAttribute('data-category');
+                filterProducts(category);
+            });
+        });
+        
+        // Buscador
+        if (productSearch) {
+            productSearch.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                filterProductsBySearch(searchTerm);
+            });
+        }
+        
+        // Ordenar
+        if (sortSelect) {
+            sortSelect.addEventListener('change', function() {
+                sortProducts(this.value);
+            });
+        }
+        
+        // Reset filtros
+        if (resetFiltersBtn) {
+            resetFiltersBtn.addEventListener('click', resetFilters);
+        }
+        
+        // Funciones de filtrado
+        function filterProducts(category) {
+            let visibleCount = 0;
+            
+            productCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                
+                if (category === 'todos' || cardCategory === category) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            updateProductCount(visibleCount);
+            toggleEmptyState(visibleCount === 0);
+        }
+        
+        function filterProductsBySearch(searchTerm) {
+            let visibleCount = 0;
+            
+            productCards.forEach(card => {
+                const title = card.querySelector('.product-title').textContent.toLowerCase();
+                const description = card.querySelector('.product-description').textContent.toLowerCase();
+                
+                if (searchTerm === '' || title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            updateProductCount(visibleCount);
+            toggleEmptyState(visibleCount === 0);
+        }
+        
+        function sortProducts(sortBy) {
+            const grid = document.querySelector('.products-grid');
+            const cards = Array.from(productCards);
+            
+            cards.sort((a, b) => {
+                const aPrice = parseFloat(a.querySelector('.product-price').textContent.replace(/[^0-9.]/g, ''));
+                const bPrice = parseFloat(b.querySelector('.product-price').textContent.replace(/[^0-9.]/g, ''));
+                const aName = a.querySelector('.product-title').textContent;
+                const bName = b.querySelector('.product-title').textContent;
+                
+                switch(sortBy) {
+                    case 'price-asc':
+                        return aPrice - bPrice;
+                    case 'price-desc':
+                        return bPrice - aPrice;
+                    case 'name-asc':
+                        return aName.localeCompare(bName);
+                    case 'name-desc':
+                        return bName.localeCompare(aName);
+                    default:
+                        return 0;
+                }
+            });
+            
+            // Reordenar grid
+            cards.forEach(card => {
+                grid.appendChild(card);
+            });
+        }
+        
+        function resetFilters() {
+            filterTags.forEach(tag => {
+                if (tag.getAttribute('data-category') === 'todos') {
+                    tag.classList.add('active');
+                } else {
+                    tag.classList.remove('active');
+                }
+            });
+            
+            if (productSearch) productSearch.value = '';
+            if (sortSelect) sortSelect.value = 'default';
+            
+            productCards.forEach(card => {
+                card.style.display = 'flex';
+            });
+            
+            updateProductCount(productCards.length);
+            toggleEmptyState(false);
+        }
+        
+        function updateProductCount(count) {
+            const productCountElement = document.getElementById('productCount');
+            if (productCountElement) {
+                productCountElement.textContent = `${count} productos`;
+            }
+        }
+        
+        function toggleEmptyState(isEmpty) {
+            if (emptyState) {
+                emptyState.style.display = isEmpty ? 'block' : 'none';
+            }
+        }
+        
+        // Botones de producto
+        const viewButtons = document.querySelectorAll('.btn-view');
+        const cartButtons = document.querySelectorAll('.btn-cart');
+        
+        viewButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const product = this.getAttribute('data-product');
+                showProductModal(product);
+            });
+        });
+        
+        cartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const product = this.getAttribute('data-product');
+                addToCart(product);
+            });
+        });
+        
+        function showProductModal(product) {
+            alert(`Mostrando detalles de: ${product}`);
+        }
+        
+        function addToCart(product) {
+            alert(`Producto ${product} agregado al carrito`);
+            // Actualizar contador del carrito
+            const currentCount = parseInt(cartCount.textContent);
+            updateCartCounts(currentCount + 1);
+        }
+    });
+    </script>
 </body>
 </html>
