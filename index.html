@@ -38,1009 +38,8 @@
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
     
-    <!-- CSS COMPLETO INTEGRADO -->
-    <style>
-        /* RESET Y ESTILOS BASE */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fff;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* HEADER */
-        .header {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-        }
-        
-        .logo i {
-            font-size: 28px;
-            color: #0066cc;
-        }
-        
-        .logo h1 {
-            font-size: 24px;
-            color: #0066cc;
-            margin: 0;
-        }
-        
-        .logo-subtitle {
-            font-size: 12px;
-            color: #666;
-            margin-top: 2px;
-        }
-        
-        /* NAVEGACIÓN */
-        .nav {
-            display: flex;
-            align-items: center;
-        }
-        
-        .nav-list {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-        
-        .nav-link {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            padding: 8px 12px;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-link:hover,
-        .nav-link.active {
-            color: #0066cc;
-            background: rgba(0, 102, 204, 0.1);
-        }
-        
-        /* Botón hamburguesa (solo móvil) */
-        .hamburger-btn {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 10px;
-            flex-direction: column;
-            gap: 4px;
-        }
-        
-        .hamburger-line {
-            width: 25px;
-            height: 3px;
-            background: #333;
-            border-radius: 2px;
-        }
-        
-        /* CARRITO Y ACCIONES */
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        
-        .cart-icon {
-            position: relative;
-            cursor: pointer;
-            font-size: 22px;
-            color: #333;
-        }
-        
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: #ff4444;
-            color: white;
-            font-size: 12px;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .btn-call {
-            background: #0066cc;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 500;
-            transition: background 0.3s ease;
-        }
-        
-        .btn-call:hover {
-            background: #0052a3;
-        }
-        
-        /* HERO SECTION */
-        .hero-section {
-            background: linear-gradient(135deg, #0066cc 0%, #0099ff 100%);
-            color: white;
-            padding: 80px 0;
-        }
-        
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-        
-        .hero-badge {
-            background: rgba(255,255,255,0.2);
-            padding: 8px 16px;
-            border-radius: 20px;
-            display: inline-block;
-            margin-bottom: 20px;
-            font-size: 14px;
-        }
-        
-        .hero-title {
-            font-size: 42px;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        
-        .hero-title .highlight {
-            color: #ffcc00;
-        }
-        
-        .hero-description {
-            font-size: 18px;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-        
-        .hero-actions {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 40px;
-        }
-        
-        .btn-primary, .btn-secondary, .btn-tertiary {
-            padding: 14px 28px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary {
-            background: #ffcc00;
-            color: #333;
-        }
-        
-        .btn-primary:hover {
-            background: #e6b800;
-            transform: translateY(-2px);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-        
-        .btn-secondary:hover {
-            background: white;
-            color: #0066cc;
-        }
-        
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin-top: 40px;
-        }
-        
-        .stat {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 32px;
-            font-weight: 700;
-            display: block;
-            color: #ffcc00;
-        }
-        
-        .stat-label {
-            font-size: 14px;
-            opacity: 0.8;
-        }
-        
-        .hero-image img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
-        
-        /* SECCIÓN DE SERVICIOS */
-        .services-section {
-            padding: 80px 0;
-            background: #f8f9fa;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .section-subtitle {
-            color: #0066cc;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            display: block;
-        }
-        
-        .section-title {
-            font-size: 36px;
-            margin-bottom: 15px;
-            color: #333;
-        }
-        
-        .section-description {
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
-        }
-        
-        .service-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        .service-card.featured {
-            background: linear-gradient(135deg, #0066cc 0%, #0099ff 100%);
-            color: white;
-        }
-        
-        .service-card.featured h3,
-        .service-card.featured p,
-        .service-card.featured li {
-            color: white;
-        }
-        
-        .service-icon {
-            font-size: 40px;
-            margin-bottom: 20px;
-            color: #0066cc;
-        }
-        
-        .service-card.featured .service-icon {
-            color: white;
-        }
-        
-        .service-card h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-        }
-        
-        .service-features {
-            list-style: none;
-            margin: 20px 0;
-        }
-        
-        .service-features li {
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .service-features i {
-            color: #00cc66;
-        }
-        
-        /* PRODUCTOS DESTACADOS */
-        .featured-products {
-            padding: 80px 0;
-        }
-        
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-        
-        .product-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .product-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: #ff4444;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-        
-        .product-badge.bestseller {
-            background: #ff4444;
-        }
-        
-        .product-badge.new {
-            background: #00cc66;
-        }
-        
-        .product-badge.discount {
-            background: #ff9900;
-        }
-        
-        .product-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        
-        .product-content {
-            padding: 20px;
-        }
-        
-        .product-content h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-        
-        .product-price {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            margin: 15px 0;
-        }
-        
-        .price {
-            font-size: 22px;
-            font-weight: 700;
-            color: #0066cc;
-        }
-        
-        .price.original {
-            text-decoration: line-through;
-            color: #999;
-            font-size: 16px;
-        }
-        
-        .price.discount {
-            color: #ff4444;
-        }
-        
-        .rental-price {
-            background: #f0f8ff;
-            color: #0066cc;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-        
-        .product-actions {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .btn-buy, .btn-rent, .btn-details {
-            flex: 1;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-buy {
-            background: #0066cc;
-            color: white;
-        }
-        
-        .btn-buy:hover {
-            background: #0052a3;
-        }
-        
-        .btn-rent {
-            background: #00cc66;
-            color: white;
-        }
-        
-        .btn-rent:hover {
-            background: #00b359;
-        }
-        
-        .btn-details {
-            background: #f0f0f0;
-            color: #333;
-            flex: 0.5;
-        }
-        
-        .section-cta {
-            text-align: center;
-            margin-top: 40px;
-        }
-        
-        .btn-view-all {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: #0066cc;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-view-all:hover {
-            background: #0052a3;
-            transform: translateY(-2px);
-        }
-        
-        /* BENEFICIOS */
-        .benefits-section {
-            padding: 80px 0;
-            background: #f8f9fa;
-        }
-        
-        .benefits-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-        
-        .benefits-list {
-            margin-top: 30px;
-        }
-        
-        .benefit-item {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 30px;
-            align-items: flex-start;
-        }
-        
-        .benefit-icon {
-            font-size: 28px;
-            color: #0066cc;
-            min-width: 50px;
-        }
-        
-        .benefit-content h3 {
-            margin-bottom: 8px;
-            font-size: 18px;
-        }
-        
-        .benefits-image img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        /* MARCAS */
-        .brands-section {
-            padding: 60px 0;
-            background: white;
-        }
-        
-        .brands-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 30px;
-            align-items: center;
-        }
-        
-        .brand-logo img {
-            width: 100%;
-            height: auto;
-            filter: grayscale(100%);
-            opacity: 0.7;
-            transition: all 0.3s ease;
-        }
-        
-        .brand-logo img:hover {
-            filter: grayscale(0%);
-            opacity: 1;
-        }
-        
-        /* TESTIMONIOS */
-        .testimonials-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #0066cc 0%, #0099ff 100%);
-            color: white;
-        }
-        
-        .testimonials-slider {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-        
-        .testimonial {
-            background: rgba(255,255,255,0.1);
-            padding: 30px;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .testimonial-rating {
-            color: #ffcc00;
-            margin-bottom: 15px;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            margin-top: 20px;
-        }
-        
-        .testimonial-author img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        
-        /* CTA FINAL */
-        .cta-section {
-            padding: 80px 0;
-            background: #0066cc;
-            color: white;
-            text-align: center;
-        }
-        
-        .cta-content h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-        
-        .cta-buttons {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin: 40px 0;
-        }
-        
-        .btn-call-large, .btn-email, .btn-contact, .btn-whatsapp {
-            background: rgba(255,255,255,0.1);
-            border: 2px solid rgba(255,255,255,0.2);
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-call-large:hover, .btn-email:hover, .btn-contact:hover, .btn-whatsapp:hover {
-            background: rgba(255,255,255,0.2);
-            transform: translateY(-5px);
-        }
-        
-        .btn-call-large i, .btn-email i, .btn-contact i, .btn-whatsapp i {
-            font-size: 30px;
-        }
-        
-        .btn-whatsapp {
-            background: #25D366;
-            border-color: #25D366;
-        }
-        
-        /* FOOTER */
-        .footer {
-            background: #333;
-            color: white;
-            padding: 60px 0 0;
-        }
-        
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .footer-logo i {
-            font-size: 30px;
-            color: #0066cc;
-        }
-        
-        .footer-description {
-            margin-bottom: 20px;
-            opacity: 0.8;
-            line-height: 1.6;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            background: #0066cc;
-            transform: translateY(-3px);
-        }
-        
-        .footer-column h4 {
-            color: white;
-            margin-bottom: 20px;
-            font-size: 18px;
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            color: #0066cc;
-        }
-        
-        .footer-contact li {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 15px;
-            align-items: flex-start;
-        }
-        
-        .footer-contact i {
-            color: #0066cc;
-            margin-top: 5px;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding: 20px 0;
-            text-align: center;
-        }
-        
-        .footer-bottom-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .footer-legal {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-        
-        .footer-legal a {
-            color: #ccc;
-            text-decoration: none;
-        }
-        
-        .sep {
-            color: #666;
-        }
-        
-        /* WHATSAPP FLOTANTE */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25D366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            text-decoration: none;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-        
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-        }
-        
-        /* BOTÓN VOLVER ARRIBA */
-        .back-to-top {
-            position: fixed;
-            bottom: 100px;
-            right: 30px;
-            background: #0066cc;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            z-index: 999;
-            transition: all 0.3s ease;
-        }
-        
-        .back-to-top.visible {
-            display: flex;
-        }
-        
-        .back-to-top:hover {
-            background: #0052a3;
-            transform: translateY(-3px);
-        }
-        
-        /* RESPONSIVE */
-        @media (max-width: 1024px) {
-            .hero-content,
-            .benefits-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .hero-stats,
-            .services-grid,
-            .products-grid,
-            .testimonials-slider,
-            .cta-buttons,
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .brands-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .nav-list {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 20px;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            }
-            
-            .nav-list.active {
-                display: flex;
-            }
-            
-            .hamburger-btn {
-                display: flex;
-            }
-            
-            .header-contact {
-                display: none;
-            }
-            
-            .hero-title {
-                font-size: 32px;
-            }
-            
-            .hero-stats,
-            .services-grid,
-            .products-grid,
-            .testimonials-slider,
-            .cta-buttons,
-            .footer-grid,
-            .brands-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero-actions {
-                flex-direction: column;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-            }
-            
-            .logo h1 {
-                font-size: 20px;
-            }
-            
-            .hero-title {
-                font-size: 28px;
-            }
-            
-            .section-title {
-                font-size: 28px;
-            }
-            
-            .btn-primary, .btn-secondary {
-                width: 100%;
-                text-align: center;
-            }
-            
-            .footer-bottom-content {
-                flex-direction: column;
-                gap: 15px;
-            }
-        }
-        
-        /* ANIMACIONES */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .service-card,
-        .product-card,
-        .testimonial {
-            animation: fadeIn 0.6s ease forwards;
-        }
-        
-        /* ESTILOS PARA LOS MODALES (manteniendo tu código original) */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1001;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-        }
-        
-        .modal-content {
-            background-color: white;
-            margin: 10% auto;
-            padding: 20px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 500px;
-            position: relative;
-        }
-        
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .modal-header h3 {
-            margin: 0;
-            color: #333;
-        }
-        
-        .close {
-            font-size: 28px;
-            font-weight: bold;
-            color: #999;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-        
-        .close:hover {
-            color: #333;
-        }
-        
-        .modal-footer {
-            display: flex;
-            justify-content: flex-end;
-            gap: 10px;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-        }
-    </style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/inicio.css">
     
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -1096,6 +95,13 @@
                     <li><a href="./nosotros.html" class="nav-link" data-tab="nosotros">¿Quiénes Somos?</a></li>
                     <li><a href="./productos.html" class="nav-link" data-tab="productos">Productos</a></li>
                     <li><a href="./contacto.html" class="nav-link" data-tab="contacto">Contacto</a></li>
+                    <!-- Botón de llamada para móvil dentro del menú -->
+                    <li class="mobile-call-item">
+                        <a href="tel:+5233XXXXXXX" class="nav-call-btn">
+                            <i class="fas fa-phone-alt"></i>
+                            Llamar ahora
+                        </a>
+                    </li>
                 </ul>
                 
                 <button class="hamburger-btn" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false">
@@ -1117,6 +123,12 @@
             </div>
         </div>
     </header>
+
+    <!-- Carrito flotante para móvil (solo visible en móvil) -->
+    <div class="cart-float-mobile" id="cartFloatMobile" role="button" tabindex="0" aria-label="Abrir carrito">
+        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+        <span class="cart-count" id="cartCountMobile">0</span>
+    </div>
 
     <!-- Main Content -->
     <main class="main" role="main">
@@ -1524,7 +536,7 @@
             
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
-                    <p>&copy; 2025 Punto Médico - Todos los derechos reservados</p>
+                    <p>&copy; 2026 Punto Médico - Todos los derechos reservados</p>
                     <div class="footer-legal">
                         <a href="./privacidad.html">Política de Privacidad</a>
                         <span class="sep">|</span>
@@ -1535,7 +547,7 @@
         </div>
     </footer>
 
-    <!-- Modales (mantener tus modales originales) -->
+    <!-- Modales -->
     <div id="cartModal" class="modal" role="dialog" aria-labelledby="cartModalTitle" aria-hidden="true">
         <div class="modal-content">
             <div class="modal-header">
@@ -1568,13 +580,24 @@
     <!-- JavaScript -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Menú hamburguesa
+        // Menú hamburguesa con transformación a X
         const hamburgerBtn = document.getElementById('hamburgerBtn');
         const navList = document.querySelector('.nav-list');
         
         hamburgerBtn.addEventListener('click', function() {
             navList.classList.toggle('active');
+            this.classList.toggle('active');
             this.setAttribute('aria-expanded', navList.classList.contains('active'));
+        });
+        
+        // Cerrar menú al hacer clic en un enlace
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+                hamburgerBtn.classList.remove('active');
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+            });
         });
         
         // Botón volver arriba
@@ -1608,7 +631,6 @@
                 }
             };
             
-            // Iniciar animación cuando el elemento sea visible
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -1628,15 +650,55 @@
         buyButtons.forEach(button => {
             button.addEventListener('click', function() {
                 alert('Producto agregado al carrito');
-                // Aquí puedes agregar la lógica real del carrito
             });
         });
         
         rentButtons.forEach(button => {
             button.addEventListener('click', function() {
                 alert('Modal de renta abierto');
-                // Aquí puedes abrir tu modal de renta existente
             });
+        });
+        
+        // Sincronizar contadores del carrito
+        const cartCount = document.getElementById('cartCount');
+        const cartCountMobile = document.getElementById('cartCountMobile');
+        
+        function updateCartCounts(count) {
+            cartCount.textContent = count;
+            cartCountMobile.textContent = count;
+        }
+        
+        // Inicializar contadores
+        updateCartCounts(0);
+        
+        // Funcionalidad para carrito flotante móvil
+        const cartFloatMobile = document.getElementById('cartFloatMobile');
+        if (cartFloatMobile) {
+            cartFloatMobile.addEventListener('click', function() {
+                const cartModal = document.getElementById('cartModal');
+                if (cartModal) {
+                    cartModal.style.display = 'block';
+                }
+            });
+        }
+        
+        // Cerrar modal del carrito
+        const closeCart = document.getElementById('closeCart');
+        if (closeCart) {
+            closeCart.addEventListener('click', function() {
+                const cartModal = document.getElementById('cartModal');
+                if (cartModal) {
+                    cartModal.style.display = 'none';
+                }
+            });
+        }
+        
+        // Cerrar modal al hacer clic fuera
+        window.addEventListener('click', function(event) {
+            const cartModal = document.getElementById('cartModal');
+            if (cartModal && event.target === cartModal) {
+                cartModal.style.display = 'none';
+            }
         });
     });
     </script>
