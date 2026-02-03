@@ -7,39 +7,62 @@
     <meta name="description" content="Punto Médico: Proveedor líder de material hospitalario en Guadalajara, Jalisco. Más de 15 años de experiencia en insumos médicos, equipos hospitalarios y asesoría especializada.">
     <meta name="keywords" content="material hospitalario, insumos médicos, Guadalajara, Jalisco, equipo médico, proveedor médico, hospitales, clínicas">
     <meta name="author" content="Punto Médico">
-    <link rel="stylesheet" href="./css/styles.css">
+    <!-- Solo un CSS -->
     <link rel="stylesheet" href="./css/nosotros.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
+    <!-- Header IDENTICO AL INDEX -->
+    <header class="header" role="banner">
         <div class="container">
             <div class="logo" onclick="window.location.href='./index.html'" style="cursor: pointer;">
-                <i class="fas fa-heartbeat"></i>
-                <h1>Punto Médico</h1>
+                <i class="fas fa-heartbeat" aria-hidden="true"></i>
+                <div>
+                    <h1>Punto Médico</h1>
+                    <p class="logo-subtitle">Material Hospitalario</p>
+                </div>
             </div>
-            <nav class="nav">
+            
+            <nav class="nav" role="navigation" aria-label="Navegación principal">
                 <ul class="nav-list">
-                    <li><a href="./index.html" class="nav-link">Inicio</a></li>
-                    <li><a href="./nosotros.html" class="nav-link active">¿Quiénes Somos?</a></li>
-                    <li><a href="./productos.html" class="nav-link">Productos</a></li>
-                    <li><a href="./contacto.html" class="nav-link">Contacto</a></li>
+                    <li><a href="./index.html" class="nav-link" data-tab="inicio">Inicio</a></li>
+                    <li><a href="./nosotros.html" class="nav-link active" data-tab="nosotros">¿Quiénes Somos?</a></li>
+                    <li><a href="./productos.html" class="nav-link" data-tab="productos">Productos</a></li>
+                    <li><a href="./contacto.html" class="nav-link" data-tab="contacto">Contacto</a></li>
+                    <!-- Botón de llamada para móvil dentro del menú -->
+                    <li class="mobile-call-item">
+                        <a href="tel:+5233XXXXXXX" class="nav-call-btn">
+                            <i class="fas fa-phone-alt"></i>
+                            Llamar ahora
+                        </a>
+                    </li>
                 </ul>
-
-                <!-- Botón del menú hamburguesa -->
-                <button class="hamburger-btn" id="hamburgerBtn" aria-label="Abrir menú" title="Abrir menú de navegación">
+                
+                <button class="hamburger-btn" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false">
                     <span class="hamburger-line"></span>
                     <span class="hamburger-line"></span>
                     <span class="hamburger-line"></span>
                 </button>
             </nav>
-            <div class="cart-icon" id="cartIcon">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="cart-count" id="cartCount">0</span>
+            
+            <div class="header-actions">
+                <div class="cart-icon" id="cartIcon" role="button" tabindex="0" aria-label="Abrir carrito">
+                    <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+                <a href="tel:+5233XXXXXXX" class="btn-call">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>Llamar ahora</span>
+                </a>
             </div>
         </div>
     </header>
+
+    <!-- Carrito flotante para móvil (solo visible en móvil) -->
+    <div class="cart-float-mobile" id="cartFloatMobile" role="button" tabindex="0" aria-label="Abrir carrito">
+        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+        <span class="cart-count" id="cartCountMobile">0</span>
+    </div>
 
     <!-- Main Content -->
     <main class="main">
@@ -84,11 +107,6 @@
                         </div>
                         <div class="about-image">
                             <img src="./images/About.png" alt="Instalaciones de Punto Médico en Guadalajara - Proveedor de material hospitalario" class="about-img">
-                            <div class="image-fallback image-placeholder">
-                                <i class="fas fa-hospital-alt" style="font-size: 3rem; color: #6b7280; margin-right: 15px;"></i>
-                                <span>Instalaciones de Punto Médico</span>
-                            </div>
-                            <div class="image-caption">Nuestras instalaciones en Colonia El Retiro, Guadalajara</div>
                         </div>
                     </div>
                 </div>
@@ -168,8 +186,6 @@
             </div>
         </section>
 
-       
-
         <!-- Certificaciones y Alianzas -->
         <section class="certifications-section">
             <div class="container">
@@ -224,210 +240,167 @@
         </section>
     </main>
 
-    <!-- Cart Modal -->
-    <div id="cartModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Carrito de Compras</h3>
-                <span class="close" id="closeCart">&times;</span>
-            </div>
-            <div class="modal-body">
-                <div id="cartItems"></div>
-                <div class="cart-total">
-                    <h4>Total: $<span id="cartTotal">0</span></h4>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn-secondary" id="clearCart">Vaciar Carrito</button>
-                <button class="btn-primary" id="proceedPayment">Proceder al Pago</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Payment Modal -->
-    <div id="paymentModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Procesar Pago</h3>
-                <span class="close" id="closePayment">&times;</span>
-            </div>
-            <div class="modal-body">
-                <div class="payment-methods">
-                    <div class="payment-method-tabs">
-                        <button type="button" class="payment-tab active" data-method="card">
-                            <i class="fas fa-credit-card"></i>
-                            Tarjeta
-                        </button>
-                        <button type="button" class="payment-tab" data-method="paypal">
-                            <i class="fab fa-paypal"></i>
-                            PayPal
-                        </button>
-                    </div>
-
-                    <!-- Formulario de Tarjeta -->
-                    <div id="cardPaymentForm" class="payment-form active">
-                        <form autocomplete="on">
-                            <div class="form-group">
-                                <label for="cardType">Tipo de Tarjeta</label>
-                                <div class="card-type-selector">
-                                    <label class="card-type-option">
-                                        <input type="radio" name="cardType" value="credit" checked 
-                                               autocomplete="cc-type">
-                                        <span class="card-type-label">
-                                            <i class="fas fa-credit-card"></i>
-                                            Crédito
-                                        </span>
-                                    </label>
-                                    <label class="card-type-option">
-                                        <input type="radio" name="cardType" value="debit"
-                                               autocomplete="cc-type">
-                                        <span class="card-type-label">
-                                            <i class="fas fa-credit-card"></i>
-                                            Débito
-                                        </span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="cardNumber">Número de Tarjeta</label>
-                                <input type="text" id="cardNumber" name="cardnumber" 
-                                       placeholder="1234 5678 9012 3456" maxlength="19"
-                                       autocomplete="cc-number">
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="expiryDate">Fecha de Vencimiento</label>
-                                    <input type="text" id="expiryDate" name="expiry" 
-                                           placeholder="MM/AA" maxlength="5"
-                                           autocomplete="cc-exp">
-                                </div>
-                                <div class="form-group">
-                                    <label for="cvv">CVV</label>
-                                    <input type="password" id="cvv" name="cvv" 
-                                           placeholder="123" maxlength="4"
-                                           autocomplete="cc-csc">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="cardHolder">Nombre del Titular</label>
-                                <input type="text" id="cardHolder" name="cardname" 
-                                       placeholder="Como aparece en la tarjeta"
-                                       autocomplete="cc-name">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="cardEmail">Correo Electrónico (para recibo)</label>
-                                <input type="email" id="cardEmail" name="email" 
-                                       placeholder="tu@email.com"
-                                       autocomplete="email">
-                            </div>
-                        </form>
-                    </div>
-
-                    <!-- Formulario de PayPal -->
-                    <div id="paypalPaymentForm" class="payment-form">
-                        <div class="paypal-simple">
-                            <div class="paypal-logo">
-                                <i class="fab fa-paypal"></i>
-                                <span>PayPal</span>
-                            </div>
-                            <p>Pago rápido y seguro con PayPal</p>
-                            <button type="button" class="btn-paypal-simple" id="btnPayPalSimple">
-                                <i class="fab fa-paypal"></i> Pagar con PayPal
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="payment-summary">
-                    <h4>Resumen del Pedido</h4>
-                    <div id="paymentItems"></div>
-                    <div class="payment-total">
-                        <strong>Total: $<span id="paymentTotal">0</span></strong>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn-secondary" id="cancelPayment">Cancelar</button>
-                <button class="btn-primary" id="processCardPayment">
-                    <i class="fas fa-lock"></i> Pagar con Tarjeta
-                </button>
-                <button class="btn-paypal" id="processPayPalPayment" style="display: none;">
-                    <i class="fab fa-paypal"></i> Pagar con PayPal
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Product Modal -->
-    <div id="productModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="productModalTitle">Agregar al Carrito</h3>
-                <span class="close" id="closeProduct">&times;</span>
-            </div>
-            <div class="modal-body">
-                <div class="rental-form">
-                    <div class="form-group">
-                        <label>Fecha de Inicio</label>
-                        <input type="date" id="startDate">
-                    </div>
-                    <div class="form-group">
-                        <label>Fecha de Fin</label>
-                        <input type="date" id="endDate">
-                    </div>
-                    <div class="form-group">
-                        <label>Cantidad</label>
-                        <input type="number" id="quantity" min="1" value="1">
-                    </div>
-                    <div class="rental-summary">
-                        <p>Días de renta: <span id="rentalDays">0</span></p>
-                        <p>Precio por día: $<span id="pricePerDay">0</span></p>
-                        <h4>Total: $<span id="rentalTotal">0</span></h4>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn-secondary" id="cancelRental">Cancelar</button>
-                <button class="btn-primary" id="addToCart">Agregar al Carrito</button>
-            </div>
-        </div>
-    </div>
-
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
-            <p>&copy; 2025 Punto Médico - Todos los derechos reservados | Colonia El Retiro, Guadalajara, Jalisco</p>
-            <p style="margin-top: 10px; font-size: 0.9rem; color: #9ca3af;">Proveedor líder de material hospitalario en Guadalajara</p>
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <i class="fas fa-heartbeat"></i>
+                        <h3>Punto Médico</h3>
+                    </div>
+                    <p class="footer-description">Proveedor líder de material hospitalario en Guadalajara, Jalisco. Especialistas en venta y renta de equipos médicos.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="./index.html">Inicio</a></li>
+                        <li><a href="./nosotros.html">¿Quiénes Somos?</a></li>
+                        <li><a href="./productos.html">Productos</a></li>
+                        <li><a href="./contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Categorías</h4>
+                    <ul class="footer-links">
+                        <li><a href="./productos.html#diagnostico">Equipos de Diagnóstico</a></li>
+                        <li><a href="./productos.html#monitoreo">Monitoreo</a></li>
+                        <li><a href="./productos.html#terapia">Terapia y Rehabilitación</a></li>
+                        <li><a href="./productos.html#mobiliario">Mobiliario Hospitalario</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contacto</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Av. López Mateos Sur 1234<br>Guadalajara, Jalisco</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <a href="tel:+5233XXXXXXX">33 XXXX XXXX</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:contacto@puntomedico.com">contacto@puntomedico.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Lun-Vie: 8:00 - 18:00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 Punto Médico - Todos los derechos reservados</p>
+                    <div class="footer-legal">
+                        <a href="./privacidad.html">Política de Privacidad</a>
+                        <span class="sep">|</span>
+                        <a href="./terminos.html">Términos y Condiciones</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <script src="./js/script.js"></script>
+    <!-- WhatsApp Flotante -->
+    <a href="https://wa.me/5233XXXXXXX" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Botón Volver Arriba -->
+    <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- JavaScript -->
     <script>
-        // Animación al hacer scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('.values-section, .why-us-section, .team-section, .certifications-section, .cta-section');
-            
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-            
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, observerOptions);
-            
-            sections.forEach(section => {
-                observer.observe(section);
+    document.addEventListener('DOMContentLoaded', function() {
+        // Menú hamburguesa con transformación a X
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navList = document.querySelector('.nav-list');
+        
+        hamburgerBtn.addEventListener('click', function() {
+            navList.classList.toggle('active');
+            this.classList.toggle('active');
+            this.setAttribute('aria-expanded', navList.classList.contains('active'));
+        });
+        
+        // Cerrar menú al hacer clic en un enlace
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+                hamburgerBtn.classList.remove('active');
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
             });
         });
+        
+        // Botón volver arriba
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+
+        // Animaciones al hacer scroll
+        const sections = document.querySelectorAll('.values-section, .why-us-section, .certifications-section, .cta-section');
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Sincronizar contadores del carrito
+        const cartCount = document.getElementById('cartCount');
+        const cartCountMobile = document.getElementById('cartCountMobile');
+        
+        function updateCartCounts(count) {
+            if (cartCount) cartCount.textContent = count;
+            if (cartCountMobile) cartCountMobile.textContent = count;
+        }
+        
+        // Inicializar contadores
+        updateCartCounts(0);
+        
+        // Funcionalidad para carrito flotante móvil
+        const cartFloatMobile = document.getElementById('cartFloatMobile');
+        if (cartFloatMobile) {
+            cartFloatMobile.addEventListener('click', function() {
+                alert('Carrito abierto desde móvil');
+                // Aquí tu lógica para abrir el modal del carrito
+            });
+        }
+    });
     </script>
 </body>
 </html>
